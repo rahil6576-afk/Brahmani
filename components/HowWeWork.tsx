@@ -471,7 +471,7 @@ export default function HowWeWork() {
             subtitle="Four disciplined stages led by licensed site electrical engineers from initial audit to continuous uptime assurance."
           />
           <Link
-            href="/contact"
+            href="/contact#quote"
             className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-widest text-[#FFC107] hover:underline uppercase self-start lg:self-end"
           >
             <span>COMMISSION AN AUDIT</span>
@@ -515,7 +515,7 @@ export default function HowWeWork() {
         <div className="mt-16 text-center">
           <MagneticButton>
             <Link
-              href="/contact"
+              href="/contact#quote"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFC107] hover:bg-[#E6A900] text-[#0A0D0F] text-xs font-bold tracking-widest uppercase transition-all shadow-[0_0_20px_-3px_rgba(255,193,7,0.4)]"
             >
               <span>DISCUSS YOUR PROJECT SCOPE</span>

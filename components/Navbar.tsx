@@ -162,8 +162,15 @@ export default function Navbar() {
             <div className="pl-2">
               <MagneticButton strength={8}>
                 <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold tracking-wider text-[#0A0D0F] bg-[#FFC107] hover:bg-[#E6A900] transition-all duration-200 shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)]"
+                  href="/contact#quote"
+                  onClick={(e) => {
+                    if (pathname === '/contact') {
+                      e.preventDefault();
+                      const el = document.getElementById('quote') || document.getElementById('quote-form');
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className="group inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold tracking-wider text-[#0A0D0F] bg-[#FFC107] hover:bg-[#E6A900] transition-all duration-200 shadow-[0_0_15px_-3px_rgba(255,193,7,0.4)] cursor-pointer"
                 >
                   <span>GET QUOTE</span>
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -175,8 +182,15 @@ export default function Navbar() {
           {/* MOBILE: Actions & Hamburger Button */}
           <div className="flex md:hidden items-center gap-1.5 xs:gap-2 shrink-0">
             <Link
-              href="/contact"
-              className="px-2 py-1 xs:px-2.5 xs:py-1.5 text-[10px] xs:text-[11px] font-bold tracking-wider text-[#0A0D0F] bg-[#FFC107] hover:bg-[#E6A900] transition-colors rounded-none"
+              href="/contact#quote"
+              onClick={(e) => {
+                if (pathname === '/contact') {
+                  e.preventDefault();
+                  const el = document.getElementById('quote') || document.getElementById('quote-form');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="px-2 py-1 xs:px-2.5 xs:py-1.5 text-[10px] xs:text-[11px] font-bold tracking-wider text-[#0A0D0F] bg-[#FFC107] hover:bg-[#E6A900] transition-colors rounded-none cursor-pointer"
             >
               QUOTE
             </Link>
@@ -254,9 +268,16 @@ export default function Navbar() {
                 {/* Quick Mobile Action CTA */}
                 <div className="pt-2 grid grid-cols-2 gap-2">
                   <Link
-                    href="/contact"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="px-3 py-2.5 text-center text-xs font-bold font-mono tracking-wider text-[#0A0D0F] bg-[#FFC107] uppercase shadow-sm"
+                    href="/contact#quote"
+                    onClick={(e) => {
+                      setMobileMenuOpen(false);
+                      if (pathname === '/contact') {
+                        e.preventDefault();
+                        const el = document.getElementById('quote') || document.getElementById('quote-form');
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className="px-3 py-2.5 text-center text-xs font-bold font-mono tracking-wider text-[#0A0D0F] bg-[#FFC107] uppercase shadow-sm cursor-pointer"
                   >
                     GET QUOTE →
                   </Link>

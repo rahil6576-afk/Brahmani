@@ -165,7 +165,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 }`}
               >
                 <Link
-                  href={`/contact?product=${encodeURIComponent(product.name)}`}
+                  href={`/contact?product=${encodeURIComponent(product.name)}#quote`}
                   onClick={onClose}
                   className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#FFC107] hover:bg-[#E6A900] text-[#0A0D0F] text-xs font-bold tracking-wider uppercase transition-colors shadow-sm"
                 >

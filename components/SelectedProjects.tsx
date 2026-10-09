@@ -103,7 +103,7 @@ export default function SelectedProjects() {
             subtitle="Demonstrated engineering capability across utility solar, industrial distribution, and automated switchgear substations."
           />
           <Link
-            href="/contact"
+            href="/contact#quote"
             className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-widest text-[#FFC107] hover:underline uppercase self-start lg:self-end"
           >
             <span>SCHEDULE SITE SURVEY FOR YOUR PROJECT</span>

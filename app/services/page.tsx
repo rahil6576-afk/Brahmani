@@ -87,7 +87,7 @@ export default function ServicesPage() {
               <ArrowRight className="w-4 h-4" />
             </a>
             <Link
-              href="/contact"
+              href="/contact#quote"
               className={`w-full xs:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 border text-xs font-mono font-semibold tracking-wider uppercase transition-colors ${
                 isNight
                   ? 'bg-[#10161C] border-[#232C35] hover:border-[#FFC107]/50 text-[#F5F5F2]'

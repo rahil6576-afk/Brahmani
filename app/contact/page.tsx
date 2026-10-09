@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroVideo from '@/components/HeroVideo';
 import ContactForm from '@/components/ContactForm';
@@ -10,6 +10,28 @@ import { useTheme } from '@/components/ThemeProvider';
 export default function ContactPage() {
   const { theme } = useTheme();
   const isNight = theme === 'night';
+
+  useEffect(() => {
+    const scrollToForm = () => {
+      if (typeof window !== 'undefined') {
+        const hash = window.location.hash;
+        if (hash === '#quote' || hash === '#form' || hash === '#quote-form' || hash === '#inquiry-form') {
+          const el = document.getElementById('quote') || document.getElementById('quote-form');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    };
+
+    // Slight delay to allow DOM and PageTransition animations to mount
+    const timer = setTimeout(scrollToForm, 180);
+    window.addEventListener('hashchange', scrollToForm);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('hashchange', scrollToForm);
+    };
+  }, []);
 
   return (
     <PageTransition>
@@ -69,7 +91,8 @@ export default function ContactPage() {
 
       {/* 2. CONTACT TWO-COLUMN INTERACTIVE WORKBENCH */}
       <section
-        className={`relative w-full py-20 sm:py-28 overflow-hidden transition-colors duration-700 ${
+        id="quote"
+        className={`relative w-full py-20 sm:py-28 overflow-hidden scroll-mt-24 transition-colors duration-700 ${
           isNight ? 'bg-[#0A0D0F]' : 'bg-[#F4F3EF]'
         }`}
       >

@@ -169,7 +169,7 @@ export default function ProductsPage() {
             </div>
 
             <Link
-              href="/contact"
+              href="/contact#quote"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#FFC107] hover:bg-[#E6A900] text-[#0A0D0F] text-xs font-bold tracking-widest uppercase transition-all shrink-0 shadow-[0_0_15px_-4px_rgba(255,193,7,0.4)]"
             >
               <span>REQUEST BULK RFQ</span>

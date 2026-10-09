@@ -124,7 +124,7 @@ export default function ParallaxSection() {
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
-            href="/contact"
+            href="/contact#quote"
             className={`inline-flex items-center gap-2 px-6 py-3.5 backdrop-blur-md border text-xs font-mono font-semibold tracking-wider uppercase transition-colors ${
               isNight
                 ? 'bg-[#0A0D0F]/80 border-[#2B3540] hover:border-[#FFC107]/50 text-[#F5F5F2]'

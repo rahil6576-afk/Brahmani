@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: '/quote',
+        destination: '/contact#quote',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

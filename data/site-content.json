@@ -691,15 +691,15 @@
       "image": "/images/hero-solar-sunrise.jpg",
       "specs": [
         {
-          "label": "PV Technology",
+          "label": "Highlight",
           "value": "Bifacial Mono PERC Modules"
         },
         {
-          "label": "Inverters",
+          "label": "Highlight",
           "value": "High-Voltage Central Inverter Architecture"
         },
         {
-          "label": "Operational SLA",
+          "label": "Highlight",
           "value": "Zero Production Downtime Installation"
         }
       ]
@@ -737,15 +737,15 @@
       "image": "/images/hero-engineer-panels.jpg",
       "specs": [
         {
-          "label": "Switchgear",
+          "label": "Highlight",
           "value": "SF6 Gas-Insulated Breakers"
         },
         {
-          "label": "Automation",
+          "label": "Highlight",
           "value": "Fiber-Optic SCADA Integration"
         },
         {
-          "label": "Power Quality",
+          "label": "Highlight",
           "value": "Harmonic Distortion Reduction to 2.1%"
         }
       ]
@@ -760,15 +760,15 @@
       "image": "/images/service-electrical-systems.jpg",
       "specs": [
         {
-          "label": "Busbar Rating",
+          "label": "Highlight",
           "value": "4000A Sandwich Aluminium Busduct"
         },
         {
-          "label": "Compliance",
+          "label": "Highlight",
           "value": "Seismic Class Zone 4 Containment"
         },
         {
-          "label": "Distribution",
+          "label": "Highlight",
           "value": "Automated Plug-in Tap-off Units"
         }
       ]

@@ -342,7 +342,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <MagneticButton className="w-full xs:w-auto">
               <Link
-                href="/contact"
+                href="/contact#quote"
                 className="w-full xs:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FFC107] hover:bg-[#E6A900] text-[#0A0D0F] text-xs font-bold tracking-widest uppercase transition-all shadow-[0_0_20px_-3px_rgba(255,193,7,0.4)]"
               >
                 <span>REQUEST SITE SURVEY</span>

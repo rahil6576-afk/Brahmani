@@ -147,7 +147,7 @@ export default function ServiceRow({ service, index }: ServiceRowProps) {
             {/* Learn More & Request Site Survey Buttons */}
             <div className="pt-3 flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-4">
               <Link
-                href={`/contact?service=${encodeURIComponent(service.title)}`}
+                href={`/contact?service=${encodeURIComponent(service.title)}#quote`}
                 className="w-full xs:w-auto group inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold tracking-widest text-[#0A0D0F] bg-[#FFC107] hover:bg-[#E6A900] uppercase transition-all shadow-[0_0_15px_-4px_rgba(255,193,7,0.35)]"
               >
                 <span>REQUEST SITE SURVEY</span>
