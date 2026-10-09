@@ -1,0 +1,828 @@
+{
+  "brand": {
+    "name": "BRAHMANI",
+    "tagline": "Engineered for Infinite Resilience • Supabase Verified 1791539627391",
+    "subtitle": "Electrical & Solar Solutions",
+    "heroPrefix": "POWERING",
+    "heroHighlight": "TOMORROW.",
+    "heroDescription": "Precision electrical infrastructure, utility-scale commercial solar arrays, and certified industrial switchgear engineered for long-term operational resilience.",
+    "logoHorizontal": "/images/brahmani-logo-horizontal.png",
+    "logoDark": "/images/brahmani-logo-dark.png",
+    "logoOriginal": "/images/brahmani-logo-original.png",
+    "logoMark": "/images/brahmani-mark-dark.png",
+    "contact": {
+      "phone": "+91 79 4890 2811",
+      "phoneMobile": "+91 98250 14892",
+      "email": "info@brahmani.com",
+      "address": "Brahmani Corporate Park, S.G. Highway, Ahmedabad, Gujarat 380054, India",
+      "city": "Ahmedabad, Gujarat, India",
+      "hours": "Mon to Sat, 9:00 to 18:00"
+    }
+  },
+  "statistics": [
+    {
+      "id": "stat-1",
+      "value": 500,
+      "suffix": "+",
+      "label": "PROJECTS COMPLETED",
+      "description": "Executed across industrial, commercial & residential sectors"
+    },
+    {
+      "id": "stat-2",
+      "value": 12,
+      "suffix": " MW+",
+      "label": "SOLAR CAPACITY INSTALLED",
+      "description": "Rooftop and ground-mounted utility arrays"
+    },
+    {
+      "id": "stat-3",
+      "value": 100,
+      "suffix": "+",
+      "label": "SKILLED PROFESSIONALS",
+      "description": "Certified electrical engineers & licensed technicians"
+    },
+    {
+      "id": "stat-4",
+      "value": 99,
+      "suffix": "%",
+      "label": "CLIENT SATISFACTION",
+      "description": "Guaranteed uptime and dedicated SLA support"
+    }
+  ],
+  "services": [
+    {
+      "id": "electrical-systems",
+      "number": "01",
+      "title": "ELECTRICAL SYSTEMS",
+      "tagline": "End-to-end electrical infrastructure",
+      "description": "Design, installation and maintenance of safe, efficient and reliable electrical systems for industrial and commercial facilities.",
+      "features": [
+        "HT / LT Power Distribution",
+        "Substation Automation",
+        "Transformer Substations",
+        "Busbar Trunking Systems"
+      ],
+      "specs": [
+        {
+          "label": "Voltage Ratings",
+          "value": "415V to 66kV"
+        },
+        {
+          "label": "Compliance",
+          "value": "IEC 61439 / IS Standards"
+        }
+      ],
+      "image": "/images/service-electrical-systems.jpg",
+      "isHome": true
+    },
+    {
+      "id": "solar-solutions",
+      "number": "02",
+      "title": "SOLAR SOLUTIONS",
+      "tagline": "Clean, high-yield photovoltaic generation",
+      "description": "Custom solar power systems for homes, businesses and industries sized to actual load patterns with complete net-metering support.",
+      "features": [
+        "Commercial Rooftop Arrays",
+        "Ground-Mounted Solar Parks",
+        "Bifacial High-Yield Modules",
+        "Net-Metering Approvals"
+      ],
+      "specs": [
+        {
+          "label": "System Efficiency",
+          "value": "Up to 22.8%"
+        },
+        {
+          "label": "Warranty",
+          "value": "25-Year Performance"
+        }
+      ],
+      "image": "/images/service-solar-solutions.jpg",
+      "isHome": true
+    },
+    {
+      "id": "industrial-power",
+      "number": "03",
+      "title": "INDUSTRIAL POWER",
+      "tagline": "Uninterrupted continuous operation",
+      "description": "High-performance electrical solutions for industrial and commercial facilities requiring rugged, non-stop power delivery.",
+      "features": [
+        "Heavy Motor Control Centers (MCC)",
+        "PCC & Power Distribution",
+        "Harmonic Mitigation Filters",
+        "Reactive Power Compensation"
+      ],
+      "specs": [
+        {
+          "label": "Fault Level",
+          "value": "Up to 65kA / 1 sec"
+        },
+        {
+          "label": "Enclosure Class",
+          "value": "IP54 / IP55 Standard"
+        }
+      ],
+      "image": "/images/service-industrial-power.jpg",
+      "isHome": true
+    },
+    {
+      "id": "maintenance",
+      "number": "04",
+      "title": "MAINTENANCE & TESTING",
+      "tagline": "Predictive diagnostics and SLA response",
+      "description": "Comprehensive electrical audits, preventive thermography scans, transformer oil tests, and 24/7 breakdown recovery.",
+      "features": [
+        "Infrared Thermography",
+        "Transformer Dissolved Gas Test",
+        "Relay Testing & Calibration",
+        "Earth Pit Resistance Testing"
+      ],
+      "specs": [
+        {
+          "label": "SLA Response",
+          "value": "< 2 Hours Guaranteed"
+        },
+        {
+          "label": "Audit Protocol",
+          "value": "NFPA 70B & IEEE 3007"
+        },
+        {
+          "label": "Report Turnaround",
+          "value": "24 Hours Digital"
+        }
+      ],
+      "image": "/images/service-maintenance.jpg",
+      "isHome": true
+    },
+    {
+      "id": "maintenance-support",
+      "number": "04",
+      "title": "MAINTENANCE & SUPPORT",
+      "tagline": "Predictive, preventive & emergency response",
+      "description": "Preventive and corrective maintenance for uninterrupted performance, including thermography surveys and rapid fault rectification.",
+      "features": [
+        "Thermal Imaging Diagnostics",
+        "Relay Calibration & Testing",
+        "24/7 Breakdown Response",
+        "Annual Maintenance Contracts (AMC)"
+      ],
+      "specs": [
+        {
+          "label": "Response SLA",
+          "value": "< 2 Hours Critical"
+        },
+        {
+          "label": "Safety Rating",
+          "value": "Zero Loss Time"
+        }
+      ],
+      "image": "/images/service-maintenance.jpg",
+      "isHome": true
+    },
+    {
+      "id": "installation",
+      "number": "05",
+      "title": "INSTALLATION & CONTAINMENT",
+      "tagline": "Precision cable containment & tray systems",
+      "description": "Certified raceway installations, perforated and ladder cable trays, seismic bracing, and precision earthing grid loops.",
+      "features": [
+        "GI / Aluminium Cable Trays",
+        "Seismic Structural Supports",
+        "Chemical Earthing Systems",
+        "Firestop Barrier Seals"
+      ],
+      "specs": [
+        {
+          "label": "Coating Spec",
+          "value": "Hot-Dip Galvanized 86µm"
+        },
+        {
+          "label": "Loading Capacity",
+          "value": "Heavy Duty Class 3"
+        },
+        {
+          "label": "Earthing Ingot",
+          "value": "Copper-Bonded Steel"
+        }
+      ],
+      "image": "/images/service-installation.jpg",
+      "isHome": false
+    },
+    {
+      "id": "electrical-installation",
+      "number": "05",
+      "title": "ELECTRICAL INSTALLATION",
+      "tagline": "Precision execution by certified teams",
+      "description": "Certified crews build it safely and tidy up after. End-to-end cabling, containment, earthing grids, and switchgear commissioning.",
+      "features": [
+        "Underground Power Cabling",
+        "Perforated Cable Tray Runs",
+        "Earth Pit Resistance Testing",
+        "Lighting Protection Grids"
+      ],
+      "specs": [
+        {
+          "label": "Testing Standard",
+          "value": "Megger & Hi-Pot Verified"
+        },
+        {
+          "label": "Earthing System",
+          "value": "Chemical Pipe & Copper Strip"
+        }
+      ],
+      "image": "/images/service-installation.jpg",
+      "isHome": false
+    },
+    {
+      "id": "energy-efficiency",
+      "number": "06",
+      "title": "ENERGY EFFICIENCY",
+      "tagline": "Load optimization and power factor control",
+      "description": "Smart monitoring and automated power factor correction panels to reduce maximum demand charges and optimize power factor near unity.",
+      "features": [
+        "Automatic Power Factor Control (APFC)",
+        "Energy Audit & Load Balancing",
+        "Harmonic Distortion Analysis",
+        "Smart Cloud Telemetry"
+      ],
+      "specs": [
+        {
+          "label": "Power Factor Target",
+          "value": "> 0.99 Continuous"
+        },
+        {
+          "label": "Payback Period",
+          "value": "8 - 14 Months"
+        }
+      ],
+      "image": "/images/service-energy-efficiency.jpg",
+      "isHome": false
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "Bifacial Mono PERC Solar Module",
+      "subtitle": "TopCon 580W-600W Dual Glass",
+      "category": "SOLAR",
+      "description": "Tier-1 dual-glass bifacial monocrystalline module delivering up to 22.8% module efficiency and 30-year linear power warranty.",
+      "specs": [
+        {
+          "label": "Peak Output",
+          "value": "580W - 600W"
+        },
+        {
+          "label": "Efficiency",
+          "value": "22.8%"
+        },
+        {
+          "label": "Bifaciality",
+          "value": "Up to 80%"
+        },
+        {
+          "label": "Glass",
+          "value": "2.0mm Dual Heat-Strengthened"
+        }
+      ],
+      "image": "/images/product-solar-panel.jpg",
+      "warranty": "30 Years Linear Power",
+      "inStock": true,
+      "isFeatured": true
+    },
+    {
+      "id": "bifacial-solar-panel",
+      "name": "Brahmani Ultra-Power 580W Bifacial",
+      "subtitle": "N-Type TOPCon Photovoltaic Module",
+      "category": "SOLAR PANELS",
+      "description": "High-performance solar panels engineered for long life and maximum output under harsh ambient temperature conditions.",
+      "specs": [
+        {
+          "label": "Max Efficiency",
+          "value": "Up to 22.8%"
+        },
+        {
+          "label": "Rated Power",
+          "value": "580 Watts"
+        },
+        {
+          "label": "Cell Type",
+          "value": "N-Type TOPCon Bifacial"
+        },
+        {
+          "label": "Warranty",
+          "value": "25 Year Performance"
+        },
+        {
+          "label": "Durability",
+          "value": "5400 Pa Snow / 2400 Pa Wind"
+        },
+        {
+          "label": "Glass",
+          "value": "Anti-reflective 3.2mm Tempered"
+        }
+      ],
+      "image": "/images/product-solar-panel.jpg",
+      "warranty": "10-25 Years Standard",
+      "inStock": false,
+      "isFeatured": true
+    },
+    {
+      "id": "prod-2",
+      "name": "Utility String Solar Inverter",
+      "subtitle": "100kW - 250kW Three-Phase Grid-Tied",
+      "category": "SOLAR",
+      "description": "High-yield multi-MPPT solar string inverter with IP66 protection, smart I-V curve diagnosis, and integrated AFCI arc detection.",
+      "specs": [
+        {
+          "label": "Max Efficiency",
+          "value": "99.0%"
+        },
+        {
+          "label": "MPPT Trackers",
+          "value": "12 MPPTs / 24 Inputs"
+        },
+        {
+          "label": "Protection",
+          "value": "IP66 / Type II SPD"
+        },
+        {
+          "label": "Telemetry",
+          "value": "RS485 / 4G / Wi-Fi"
+        }
+      ],
+      "image": "/images/product-inverter.jpg",
+      "warranty": "10 Years Extendable",
+      "inStock": true,
+      "isFeatured": true
+    },
+    {
+      "id": "commercial-solar-inverter",
+      "name": "Brahmani SolarMax IS-50000",
+      "subtitle": "Three-Phase Grid-Tied Commercial Inverter",
+      "category": "INVERTERS",
+      "description": "High-efficiency string inverter with multi-MPPT tracking, integrated DC disconnect, and intelligent cloud IoT monitoring.",
+      "specs": [
+        {
+          "label": "Peak Efficiency",
+          "value": "98.8%"
+        },
+        {
+          "label": "Nominal AC Power",
+          "value": "50 kW"
+        },
+        {
+          "label": "MPPT Trackers",
+          "value": "4 Independent MPPTs"
+        },
+        {
+          "label": "Protection",
+          "value": "IP66 Rugged Enclosure"
+        },
+        {
+          "label": "Telemetry",
+          "value": "4G / Wi-Fi / RS485 Modbus"
+        },
+        {
+          "label": "Cooling",
+          "value": "Smart Forced Air Cooling"
+        }
+      ],
+      "image": "/images/product-inverter.jpg",
+      "warranty": "10-25 Years Standard",
+      "inStock": false,
+      "isFeatured": false
+    },
+    {
+      "id": "prod-3",
+      "name": "Power & Control Copper Cables",
+      "subtitle": "1.1kV to 33kV XLPE Insulated Armoured",
+      "category": "CABLES",
+      "description": "Heavy-duty electrolytic grade copper cables with cross-linked polyethylene insulation, galvanized steel armor, and zero halogen.",
+      "specs": [
+        {
+          "label": "Conductor",
+          "value": "Electrolytic Copper Class 2"
+        },
+        {
+          "label": "Insulation",
+          "value": "XLPE 90°C Rated"
+        },
+        {
+          "label": "Sheath",
+          "value": "FRLS / LSZH Heavy Grade"
+        },
+        {
+          "label": "Standards",
+          "value": "IS:7098 / IEC 60502"
+        }
+      ],
+      "image": "/images/product-cables.jpg",
+      "warranty": "5 Years Manufacturer",
+      "inStock": true,
+      "isFeatured": true
+    },
+    {
+      "id": "armored-power-cables",
+      "name": "Brahmani DuraCore Armored Cables",
+      "subtitle": "XLPE Insulated Heavy-Duty Copper Power Cable",
+      "category": "CABLES & WIRING",
+      "description": "Multi-conductor steel wire armored power and solar DC cables engineered for extreme subterranean and outdoor installations.",
+      "specs": [
+        {
+          "label": "Conductor",
+          "value": "99.99% Electrolytic Copper"
+        },
+        {
+          "label": "Insulation",
+          "value": "Cross-Linked Polyethylene (XLPE)"
+        },
+        {
+          "label": "Armoring",
+          "value": "Galvanized Steel Wire Armor (GSWA)"
+        },
+        {
+          "label": "Voltage Grade",
+          "value": "1.1 kV / 11 kV / 33 kV"
+        },
+        {
+          "label": "Flame Retardant",
+          "value": "FRLS-H Zero Halogen"
+        },
+        {
+          "label": "Operating Temp",
+          "value": "-40°C to +90°C"
+        }
+      ],
+      "image": "/images/product-cables.jpg",
+      "warranty": "10-25 Years Standard",
+      "inStock": false,
+      "isFeatured": false
+    },
+    {
+      "id": "prod-4",
+      "name": "Modular HT / LT Switchgear Panels",
+      "subtitle": "Type-Tested Form-4b Switchboards",
+      "category": "SWITCHGEAR",
+      "description": "Custom-engineered Power Control Centers (PCC) and Motor Control Centers (MCC) built with air circuit breakers and smart relays.",
+      "specs": [
+        {
+          "label": "Rated Current",
+          "value": "Up to 6300A"
+        },
+        {
+          "label": "Short-Circuit",
+          "value": "65kA for 1 sec"
+        },
+        {
+          "label": "Partitioning",
+          "value": "Form 4b Separation"
+        },
+        {
+          "label": "Protection",
+          "value": "Microprocessor Relays"
+        }
+      ],
+      "image": "/images/product-switchgear.jpg",
+      "warranty": "5 Years Commissioning",
+      "inStock": true,
+      "isFeatured": true
+    },
+    {
+      "id": "vacuum-switchgear-panel",
+      "name": "Brahmani ArcGuard 11kV Switchgear",
+      "subtitle": "Metal-Clad Indoor Medium Voltage Switchgear",
+      "category": "SWITCHGEAR",
+      "description": "Air-insulated cubicle fitted with vacuum circuit breakers, micro-processor numerical protection relays, and copper busbars.",
+      "specs": [
+        {
+          "label": "Rated Voltage",
+          "value": "11 kV / 12 kV"
+        },
+        {
+          "label": "Short Circuit Breaking",
+          "value": "26.3 kA (3 sec)"
+        },
+        {
+          "label": "Busbar Rating",
+          "value": "1250A / 2000A Copper"
+        },
+        {
+          "label": "Internal Arc Class",
+          "value": "IAC AFLR 25kA 1s"
+        },
+        {
+          "label": "Protection Relays",
+          "value": "IEC 61850 Numerical"
+        },
+        {
+          "label": "Standards",
+          "value": "IEC 62271-200 Compliant"
+        }
+      ],
+      "image": "/images/product-switchgear.jpg",
+      "warranty": "10-25 Years Standard",
+      "inStock": false,
+      "isFeatured": false
+    },
+    {
+      "id": "prod-5",
+      "name": "Industrial High-Bay LED Luminaire",
+      "subtitle": "150W - 240W Die-Cast IP66 Fixture",
+      "category": "LIGHTING",
+      "description": "Precision engineered industrial LED luminaire with 160 lm/W luminous efficacy, surge protection, and cast aluminium cooling fins.",
+      "specs": [
+        {
+          "label": "Efficacy",
+          "value": "160 lm/W"
+        },
+        {
+          "label": "CCT Options",
+          "value": "4000K / 5700K / 6500K"
+        },
+        {
+          "label": "Surge Protection",
+          "value": "10kV Built-In"
+        },
+        {
+          "label": "Lifespan",
+          "value": "L70 > 60,000 Hours"
+        }
+      ],
+      "image": "/images/product-led-lighting.jpg",
+      "warranty": "5 Years Full Replacement",
+      "inStock": true,
+      "isFeatured": false
+    },
+    {
+      "id": "industrial-highbay-led",
+      "name": "Brahmani Lumina Pro 200W",
+      "subtitle": "High-Bay Industrial Die-Cast Luminaire",
+      "category": "LED LIGHTING",
+      "description": "Engineered for high-ceiling industrial warehouses and fabrication bays with precision optical distribution and thermal fins.",
+      "specs": [
+        {
+          "label": "Luminous Efficacy",
+          "value": "160 Lumens / Watt"
+        },
+        {
+          "label": "Total Lumens",
+          "value": "32,000 lm"
+        },
+        {
+          "label": "Color Temp (CCT)",
+          "value": "4000K / 5700K Natural"
+        },
+        {
+          "label": "Beam Angle",
+          "value": "90° / 120° Precision Optics"
+        },
+        {
+          "label": "Surge Protection",
+          "value": "10 kV Built-in SPD"
+        },
+        {
+          "label": "Lifespan",
+          "value": "> 50,000 Hours (L80B10)"
+        }
+      ],
+      "image": "/images/product-led-lighting.jpg",
+      "warranty": "10-25 Years Standard",
+      "inStock": false,
+      "isFeatured": false
+    },
+    {
+      "id": "prod-6",
+      "name": "PLC Automation & SCADA Panel",
+      "subtitle": "Closed-Loop Industrial Control Rack",
+      "category": "AUTOMATION",
+      "description": "Intelligent automation enclosure with programmable logic controller (PLC), HMI touchscreen, redundant power supplies, and fieldbus.",
+      "specs": [
+        {
+          "label": "Processor",
+          "value": "Dual Core Industrial PLC"
+        },
+        {
+          "label": "Display",
+          "value": "10.1 Inch Color Touch HMI"
+        },
+        {
+          "label": "Protocols",
+          "value": "Modbus TCP / Profinet / BACnet"
+        },
+        {
+          "label": "I/O Capacity",
+          "value": "Modular up to 512 I/O"
+        }
+      ],
+      "image": "/images/product-control-panels.jpg",
+      "warranty": "3 Years System Warranty",
+      "inStock": true,
+      "isFeatured": false
+    },
+    {
+      "id": "automation-control-panel",
+      "name": "Brahmani AutoLogic PLC Control Panel",
+      "subtitle": "Custom Engineered Automation & Motor Control",
+      "category": "CONTROL PANELS",
+      "description": "Tailor-designed PLC and VFD motor control panels with segregated compartments, clear wire labeling, and HMI touch display.",
+      "specs": [
+        {
+          "label": "Controller",
+          "value": "Siemens / Allen-Bradley PLC"
+        },
+        {
+          "label": "HMI Interface",
+          "value": "7\" / 10\" Industrial Touchscreen"
+        },
+        {
+          "label": "VFD Integration",
+          "value": "Sensorless Vector Drives"
+        },
+        {
+          "label": "Enclosure Sheet",
+          "value": "2.0mm CRCA Sheet Steel"
+        },
+        {
+          "label": "Ingress Protection",
+          "value": "IP54 / IP55 Gasketed"
+        },
+        {
+          "label": "Wiring Standard",
+          "value": "Ferruled & Color Coded"
+        }
+      ],
+      "image": "/images/product-control-panels.jpg",
+      "warranty": "10-25 Years Standard",
+      "inStock": false,
+      "isFeatured": false
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-01",
+      "title": "Sanand Industrial Park Photovoltaic Array",
+      "category": "INDUSTRIAL SOLAR",
+      "location": "Sanand, Gujarat",
+      "scope": "Turnkey Rooftop Solar & High-Voltage Grid Interconnection",
+      "status": "OPERATIONAL",
+      "image": "/images/service-solar-solutions.jpg",
+      "specs": [
+        {
+          "label": "Technology",
+          "value": "Bifacial TOPCon Modules"
+        },
+        {
+          "label": "Interconnection",
+          "value": "11kV HT Substation"
+        },
+        {
+          "label": "Standard",
+          "value": "IEC 61439 Synchronized"
+        }
+      ]
+    },
+    {
+      "id": "proj-1",
+      "title": "Cadila Pharmaceuticals Rooftop Solar",
+      "category": "SOLAR EPC",
+      "location": "Dholka, Gujarat",
+      "scope": "Turnkey engineering, procurement, and grid synchronization of a 2.4 MWp bifacial rooftop solar system spanning 3 production blocks.",
+      "status": "OPERATIONAL",
+      "image": "/images/hero-solar-sunrise.jpg",
+      "specs": [
+        {
+          "label": "PV Technology",
+          "value": "Bifacial Mono PERC Modules"
+        },
+        {
+          "label": "Inverters",
+          "value": "High-Voltage Central Inverter Architecture"
+        },
+        {
+          "label": "Operational SLA",
+          "value": "Zero Production Downtime Installation"
+        }
+      ]
+    },
+    {
+      "id": "proj-02",
+      "title": "Ahmedabad Logistics & Cold Storage Infrastructure",
+      "category": "COMMERCIAL ELECTRICAL",
+      "location": "Ahmedabad, Gujarat",
+      "scope": "Complete HT/LT Power Distribution & APFC Capacitor Banks",
+      "status": "OPERATIONAL",
+      "image": "/images/service-electrical-systems.jpg",
+      "specs": [
+        {
+          "label": "Voltage Grade",
+          "value": "415V / 11kV Distribution"
+        },
+        {
+          "label": "Busbar Capacity",
+          "value": "2500A Copper Busway"
+        },
+        {
+          "label": "Uptime SLA",
+          "value": "99.98% Guaranteed"
+        }
+      ]
+    },
+    {
+      "id": "proj-2",
+      "title": "Arvind Mills 66kV Substation Overhaul",
+      "category": "SUBSTATIONS",
+      "location": "Naroda, Ahmedabad",
+      "scope": "Comprehensive retrofitting and SCADA modernization of a primary 66kV intake substation with SF6 gas-insulated breakers.",
+      "status": "OPERATIONAL",
+      "image": "/images/hero-engineer-panels.jpg",
+      "specs": [
+        {
+          "label": "Switchgear",
+          "value": "SF6 Gas-Insulated Breakers"
+        },
+        {
+          "label": "Automation",
+          "value": "Fiber-Optic SCADA Integration"
+        },
+        {
+          "label": "Power Quality",
+          "value": "Harmonic Distortion Reduction to 2.1%"
+        }
+      ]
+    },
+    {
+      "id": "proj-3",
+      "title": "Adani Logistics Heavy Busway Distribution",
+      "category": "INDUSTRIAL",
+      "location": "Mundra SEZ, Gujarat",
+      "scope": "Design and execution of compact sandwich-type aluminium busbar trunking systems across 450,000 sq.ft of automated warehousing.",
+      "status": "OPERATIONAL",
+      "image": "/images/service-electrical-systems.jpg",
+      "specs": [
+        {
+          "label": "Busbar Rating",
+          "value": "4000A Sandwich Aluminium Busduct"
+        },
+        {
+          "label": "Compliance",
+          "value": "Seismic Class Zone 4 Containment"
+        },
+        {
+          "label": "Distribution",
+          "value": "Automated Plug-in Tap-off Units"
+        }
+      ]
+    },
+    {
+      "id": "proj-03",
+      "title": "Vadodara Precision Engineering Works",
+      "category": "HT/LT DISTRIBUTION",
+      "location": "Vadodara, Gujarat",
+      "scope": "Vacuum Circuit Breaker Switchgear & PLC Automation Panel",
+      "status": "OPERATIONAL",
+      "image": "/images/service-industrial-power.jpg",
+      "specs": [
+        {
+          "label": "Switchgear",
+          "value": "11kV Metal-Clad ArcGuard"
+        },
+        {
+          "label": "Fault Rating",
+          "value": "26.3 kA (3 sec)"
+        },
+        {
+          "label": "Enclosure",
+          "value": "IP54 Standard Gasketed"
+        }
+      ]
+    },
+    {
+      "id": "proj-04",
+      "title": "Kutch Industrial Energy Hub",
+      "category": "FACTORY POWER INFRASTRUCTURE",
+      "location": "Kutch, Gujarat",
+      "scope": "Substation Earthing Grids, Transformer Bays & Cable Containment",
+      "status": "OPERATIONAL",
+      "image": "/images/hero-engineer-panels.jpg",
+      "specs": [
+        {
+          "label": "Grounding Grid",
+          "value": "Chemical Pipe & Copper"
+        },
+        {
+          "label": "Compliance",
+          "value": "IS 3043 Verified"
+        },
+        {
+          "label": "Safety Record",
+          "value": "Zero Loss Time Incidents"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "announcementActive": true,
+    "announcementText": "ISO 9001:2015 Certified EPC Contractor | Approved by GEDA & Chief Electrical Inspector",
+    "maintenanceMode": false
+  }
+}

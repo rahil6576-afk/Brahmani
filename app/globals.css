@@ -1,0 +1,384 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #0A0D0F;
+    --bg-secondary: #11161A;
+    --bg-surface: #151C22;
+    --bg-elevated: #1B232B;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 193, 7, 0.35);
+    
+    --text-white: #F5F5F2;
+    --text-warm: #ECEBE6;
+    --text-muted: #737A80;
+    --text-light-muted: #A1A8AF;
+    
+    --color-yellow: #FFC107;
+    --color-yellow-deep: #E6A900;
+    --color-yellow-glow: rgba(255, 193, 7, 0.4);
+  }
+
+  html.day-mode {
+    --bg-primary: #F4F3EF;
+    --bg-secondary: #FFFFFF;
+    --bg-surface: #FAF9F6;
+    --bg-elevated: #EDECE6;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-highlight: rgba(230, 169, 0, 0.45);
+    
+    --text-white: #11161A;
+    --text-warm: #222B32;
+    --text-muted: #66707A;
+    --text-light-muted: #555E67;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-white);
+    font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.45s ease, color 0.45s ease;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-white);
+    overflow-x: hidden;
+    min-height: 100vh;
+    selection-background-color: #FFC107;
+    selection-color: #0A0D0F;
+    transition: background-color 0.45s ease, color 0.45s ease;
+  }
+
+  ::selection {
+    background-color: #FFC107;
+    color: #0A0D0F;
+  }
+}
+
+/* Engineering Technical Grid Background */
+.bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-tech-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Subtle circuit line animation */
+@keyframes electricalFlow {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-electrical {
+  stroke-dasharray: 100 300;
+  animation: electricalFlow 6s linear infinite;
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.animate-energy-pulse {
+  animation: energyPulse 3s ease-in-out infinite;
+}
+
+/* Glass & Glow utilities */
+.glow-yellow-sm {
+  filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.45));
+}
+
+.glow-yellow-md {
+  filter: drop-shadow(0 0 16px rgba(255, 193, 7, 0.6));
+}
+
+.glow-yellow-lg {
+  filter: drop-shadow(0 0 28px rgba(255, 193, 7, 0.75));
+}
+
+.box-glow-yellow {
+  box-shadow: 0 0 25px -4px rgba(255, 193, 7, 0.25);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0D0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232C33;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFC107;
+}
+
+/* Utility for industrial borders */
+.border-industrial {
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.border-industrial-highlight {
+  border-color: rgba(255, 193, 7, 0.35);
+}
+
+/* Segoe UI 400 for Admin Panel */
+.font-segoe-admin,
+.font-segoe-admin input,
+.font-segoe-admin select,
+.font-segoe-admin textarea,
+.font-segoe-admin button {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-weight: 400;
+}
+
+/* =========================================================================
+   DAY MODE COMPREHENSIVE OVERRIDES FOR BRAHMANI ADMIN CONSOLE
+   ========================================================================= */
+
+html.day-mode .font-segoe-admin {
+  background-color: #F4F3EF !important;
+  color: #11161A !important;
+}
+
+html.day-mode .font-segoe-admin aside {
+  background-color: #FAF9F6 !important;
+  border-color: #E2E0D8 !important;
+  color: #11161A !important;
+}
+
+html.day-mode .font-segoe-admin header {
+  background-color: #FFFFFF !important;
+  border-color: #E2E0D8 !important;
+  color: #11161A !important;
+}
+
+html.day-mode .font-segoe-admin main {
+  background-color: #F4F3EF !important;
+  color: #11161A !important;
+}
+
+/* Day mode: All primary card enclosures, form panels, and main boxes */
+html.day-mode .font-segoe-admin [class*="bg-[#0C1016]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0c1016]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0D1217]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0d1217]"],
+html.day-mode .font-segoe-admin [class*="bg-[#07090C]"],
+html.day-mode .font-segoe-admin [class*="bg-[#07090c]"],
+html.day-mode .font-segoe-admin [class*="bg-[#080B0F]"],
+html.day-mode .font-segoe-admin [class*="bg-[#080b0f]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0A0D12]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0a0d12]"],
+html.day-mode .font-segoe-admin [class*="bg-[#090D12]"],
+html.day-mode .font-segoe-admin [class*="bg-[#090d12]"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E0D8 !important;
+  color: #11161A !important;
+}
+
+/* Secondary cards, quick dispatch buttons, inputs, sub-panels */
+html.day-mode .font-segoe-admin [class*="bg-[#121822]"],
+html.day-mode .font-segoe-admin [class*="bg-[#121922]"],
+html.day-mode .font-segoe-admin [class*="bg-[#10151D]"],
+html.day-mode .font-segoe-admin [class*="bg-[#10151d]"],
+html.day-mode .font-segoe-admin [class*="bg-[#141C25]"],
+html.day-mode .font-segoe-admin [class*="bg-[#141c25]"],
+html.day-mode .font-segoe-admin [class*="bg-[#131B24]"],
+html.day-mode .font-segoe-admin [class*="bg-[#131b24]"],
+html.day-mode .font-segoe-admin [class*="bg-[#18222E]"],
+html.day-mode .font-segoe-admin [class*="bg-[#18222e]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0B0F15]"],
+html.day-mode .font-segoe-admin [class*="bg-[#0b0f15]"] {
+  background-color: #FAF9F6 !important;
+  border-color: #DDD9CE !important;
+  color: #11161A !important;
+}
+
+/* Action bars, footers, table headers */
+html.day-mode .font-segoe-admin [class*="bg-[#090C10]"],
+html.day-mode .font-segoe-admin [class*="bg-[#090c10]"] {
+  background-color: #F8F7F3 !important;
+  border-color: #E8E6DF !important;
+  color: #11161A !important;
+}
+
+/* Feature pills, chips, secondary square buttons, icon badges */
+html.day-mode .font-segoe-admin [class*="bg-[#141C26]"],
+html.day-mode .font-segoe-admin [class*="bg-[#141c26]"],
+html.day-mode .font-segoe-admin [class*="bg-[#151D26]"],
+html.day-mode .font-segoe-admin [class*="bg-[#151d26]"],
+html.day-mode .font-segoe-admin [class*="bg-[#1C2530]"],
+html.day-mode .font-segoe-admin [class*="bg-[#1c2530]"],
+html.day-mode .font-segoe-admin [class*="bg-[#1C2734]"],
+html.day-mode .font-segoe-admin [class*="bg-[#1c2734]"],
+html.day-mode .font-segoe-admin [class*="bg-[#1A2330]"],
+html.day-mode .font-segoe-admin [class*="bg-[#1a2330]"] {
+  background-color: #EDECE6 !important;
+  border-color: #D8D5CA !important;
+  color: #333D47 !important;
+}
+
+/* Input controls in Day Mode */
+html.day-mode .font-segoe-admin input,
+html.day-mode .font-segoe-admin textarea,
+html.day-mode .font-segoe-admin select {
+  background-color: #FFFFFF !important;
+  border-color: #DDD9CE !important;
+  color: #11161A !important;
+}
+
+html.day-mode .font-segoe-admin input:focus,
+html.day-mode .font-segoe-admin textarea:focus,
+html.day-mode .font-segoe-admin select:focus {
+  border-color: #FFC107 !important;
+  background-color: #FFFFFF !important;
+  color: #11161A !important;
+  box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.4) !important;
+}
+
+/* Border overrides */
+html.day-mode .font-segoe-admin [class*="border-[#1E2734]"],
+html.day-mode .font-segoe-admin [class*="border-[#1e2734]"],
+html.day-mode .font-segoe-admin [class*="border-[#18212D]"],
+html.day-mode .font-segoe-admin [class*="border-[#18212d]"],
+html.day-mode .font-segoe-admin [class*="border-[#18212C]"],
+html.day-mode .font-segoe-admin [class*="border-[#18212c]"],
+html.day-mode .font-segoe-admin [class*="border-[#232F3F]"],
+html.day-mode .font-segoe-admin [class*="border-[#232f3f]"],
+html.day-mode .font-segoe-admin [class*="border-[#232F3D]"],
+html.day-mode .font-segoe-admin [class*="border-[#232f3d]"],
+html.day-mode .font-segoe-admin [class*="border-[#243140]"],
+html.day-mode .font-segoe-admin [class*="border-[#243140]"],
+html.day-mode .font-segoe-admin [class*="border-[#243242]"],
+html.day-mode .font-segoe-admin [class*="border-[#243242]"],
+html.day-mode .font-segoe-admin [class*="border-[#253342]"],
+html.day-mode .font-segoe-admin [class*="border-[#253342]"],
+html.day-mode .font-segoe-admin [class*="border-[#253242]"],
+html.day-mode .font-segoe-admin [class*="border-[#253242]"],
+html.day-mode .font-segoe-admin [class*="border-[#232F3E]"],
+html.day-mode .font-segoe-admin [class*="border-[#232f3e]"],
+html.day-mode .font-segoe-admin [class*="border-[#212C3B]"],
+html.day-mode .font-segoe-admin [class*="border-[#212c3b]"],
+html.day-mode .font-segoe-admin [class*="border-[#1C242F]"],
+html.day-mode .font-segoe-admin [class*="border-[#1C2531]"],
+html.day-mode .font-segoe-admin [class*="border-[#141C25]"] {
+  border-color: #E2E0D8 !important;
+}
+
+/* Text overrides in Day Mode */
+html.day-mode .font-segoe-admin .text-white {
+  color: #11161A !important;
+}
+
+html.day-mode .font-segoe-admin [class*="text-[#788796]"],
+html.day-mode .font-segoe-admin [class*="text-[#8C9BAA]"],
+html.day-mode .font-segoe-admin [class*="text-[#8c9baa]"],
+html.day-mode .font-segoe-admin [class*="text-[#82909F]"],
+html.day-mode .font-segoe-admin [class*="text-[#82909f]"],
+html.day-mode .font-segoe-admin [class*="text-[#8E9CAE]"],
+html.day-mode .font-segoe-admin [class*="text-[#8e9cae]"],
+html.day-mode .font-segoe-admin [class*="text-[#728090]"],
+html.day-mode .font-segoe-admin [class*="text-[#8BA0B5]"],
+html.day-mode .font-segoe-admin [class*="text-[#8ba0b5]"],
+html.day-mode .font-segoe-admin [class*="text-[#A5B2C0]"],
+html.day-mode .font-segoe-admin [class*="text-[#a5b2c0]"],
+html.day-mode .font-segoe-admin [class*="text-[#9BA8B7]"],
+html.day-mode .font-segoe-admin [class*="text-[#9ba8b7]"],
+html.day-mode .font-segoe-admin [class*="text-[#9BA8B6]"],
+html.day-mode .font-segoe-admin [class*="text-[#9ba8b6]"],
+html.day-mode .font-segoe-admin [class*="text-[#8A97A6]"],
+html.day-mode .font-segoe-admin [class*="text-[#8a97a6]"],
+html.day-mode .font-segoe-admin [class*="text-[#8292A3]"],
+html.day-mode .font-segoe-admin [class*="text-[#8292a3]"],
+html.day-mode .font-segoe-admin [class*="text-[#8C9AA8]"],
+html.day-mode .font-segoe-admin [class*="text-[#8c9aa8]"],
+html.day-mode .font-segoe-admin [class*="text-[#BAC5D1]"],
+html.day-mode .font-segoe-admin [class*="text-[#bac5d1]"] {
+  color: #4A5664 !important;
+}
+
+html.day-mode .font-segoe-admin [class*="text-[#6A7888]"],
+html.day-mode .font-segoe-admin [class*="text-[#6a7888]"],
+html.day-mode .font-segoe-admin [class*="text-[#626E7D]"],
+html.day-mode .font-segoe-admin [class*="text-[#626e7d]"],
+html.day-mode .font-segoe-admin [class*="text-[#5A6878]"],
+html.day-mode .font-segoe-admin [class*="text-[#5a6878]"],
+html.day-mode .font-segoe-admin [class*="text-[#5D6B7A]"],
+html.day-mode .font-segoe-admin [class*="text-[#5d6b7a]"],
+html.day-mode .font-segoe-admin [class*="text-[#6C7A89]"],
+html.day-mode .font-segoe-admin [class*="text-[#6c7a89]"],
+html.day-mode .font-segoe-admin [class*="text-[#5F6D7C]"],
+html.day-mode .font-segoe-admin [class*="text-[#5f6d7c]"],
+html.day-mode .font-segoe-admin [class*="text-[#7A8898]"],
+html.day-mode .font-segoe-admin [class*="text-[#7a8898]"] {
+  color: #606E7D !important;
+}
+
+/* Sidebar navigation buttons */
+html.day-mode .font-segoe-admin aside button {
+  color: #4F5A67;
+}
+
+html.day-mode .font-segoe-admin aside button:hover {
+  background-color: #EFECE5 !important;
+  color: #11161A !important;
+}
+
+html.day-mode .font-segoe-admin aside button[class*="bg-[#FFC107]/10"],
+html.day-mode .font-segoe-admin aside button[class*="bg-[#ffc107]/10"] {
+  background-color: rgba(255, 193, 7, 0.18) !important;
+  color: #9E7400 !important;
+  font-weight: 600;
+}
+
+/* Day mode scrollbars */
+html.day-mode ::-webkit-scrollbar-track {
+  background: #F4F3EF;
+}
+
+html.day-mode ::-webkit-scrollbar-thumb {
+  background: #D4D2C9;
+}
+
+html.day-mode ::-webkit-scrollbar-thumb:hover {
+  background: #FFC107;
+}
+
+/* Disable custom cursor on mobile and coarse pointer devices */
+@media (max-width: 1024px), (pointer: coarse) {
+  [data-custom-cursor-root],
+  .custom-cursor-container {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+

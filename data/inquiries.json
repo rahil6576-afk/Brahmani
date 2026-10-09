@@ -1,0 +1,58 @@
+[
+  {
+    "id": "inq-1791527106729",
+    "name": "uttydtyd",
+    "company": "ghfcty",
+    "email": "rroro23@gmail.com",
+    "phone": "yxry",
+    "location": "Gujarat, India",
+    "projectType": "Commercial Solar Installation",
+    "projectScale": "50 kW to 250 kW",
+    "message": "yrxry",
+    "status": "New",
+    "adminNotes": "",
+    "createdAt": "2026-10-09T06:25:06.729+00:00"
+  },
+  {
+    "id": "inq-1741501001",
+    "name": "Rajesh Patel",
+    "company": "Adani Solar Logistics Park",
+    "email": "rajesh.patel@adanilogistics.in",
+    "phone": "+91 98251 44520",
+    "location": "Sanand, Gujarat",
+    "projectType": "Commercial Solar Installation",
+    "projectScale": "500 kW to 1 MW",
+    "message": "Looking for turnkey EPC proposal for 750 kW rooftop solar array with net metering interconnection and HT substation.",
+    "status": "New",
+    "adminNotes": "High priority enterprise lead. Initial audit scheduled for Tuesday.",
+    "createdAt": "2026-10-08T09:30:00+00:00"
+  },
+  {
+    "id": "inq-1741501002",
+    "name": "Pooja Shah",
+    "company": "Torrent Pharma Manufacturing Unit",
+    "email": "pooja.shah@torrentpharma.com",
+    "phone": "+91 98980 23118",
+    "location": "Ahmedabad, Gujarat",
+    "projectType": "Industrial Power & MCC Panels",
+    "projectScale": "250 kW to 500 kW",
+    "message": "Need replacement and commissioning of 11kV HT switchgear and automated power factor correction panel with SCADA telemetry.",
+    "status": "In Review",
+    "adminNotes": "Technical specifications datasheet sent. Awaiting site drawing review.",
+    "createdAt": "2026-10-07T14:15:00+00:00"
+  },
+  {
+    "id": "inq-1741501003",
+    "name": "Amit Verma",
+    "company": "Gujarat Cold Chain Logistics",
+    "email": "amit.v@gujaratexpress.co.in",
+    "phone": "+91 97240 66891",
+    "location": "Vadodara, Gujarat",
+    "projectType": "Electrical Maintenance AMC",
+    "projectScale": "Annual Contract",
+    "message": "Requesting annual comprehensive maintenance contract with 2-hour breakdown SLA for three warehouse facilities.",
+    "status": "Contacted",
+    "adminNotes": "Quotation submitted at ₹4.8L/yr. Follow up on Thursday.",
+    "createdAt": "2026-10-06T11:45:00+00:00"
+  }
+]
