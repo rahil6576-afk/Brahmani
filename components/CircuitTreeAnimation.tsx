@@ -178,7 +178,7 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
       // =====================================================================
       // Base resting brightness envelope (seamless at t=0 and t=1)
       const baseAlpha = 0.55 + 0.35 * Math.sin(p * Math.PI * 2 - Math.PI / 2 + 0.5) * 0.35;
-      
+
       ctx.save();
       ctx.globalAlpha = Math.max(0.45, Math.min(0.95, baseAlpha));
       ctx.drawImage(img, offsetX, offsetY, size, size);
@@ -228,10 +228,10 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
       // Ground energy crackling beneath roots (progress 0.02 to 0.25)
       if (p <= 0.26 || p >= 0.95) {
         const rootY = offsetY + size * 0.88;
-        const groundIntensity = p >= 0.95 
-          ? (p - 0.95) / 0.05 
+        const groundIntensity = p >= 0.95
+          ? (p - 0.95) / 0.05
           : 1.0 - (p / 0.26);
-        
+
         const groundGrad = offCtx.createLinearGradient(0, rootY + size * 0.12, 0, rootY - size * 0.05);
         groundGrad.addColorStop(0, `rgba(255, 255, 255, ${groundIntensity * 0.85})`);
         groundGrad.addColorStop(0.4, `rgba(255, 193, 7, ${groundIntensity * 0.7})`);
@@ -264,7 +264,7 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
 
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
-        
+
         // Intense, tight radial flare directly on the bolt
         const boltGrad = ctx.createRadialGradient(boltX, boltY, 1, boltX, boltY, size * 0.12);
         boltGrad.addColorStop(0, `rgba(255, 255, 255, ${boltIntensity * 0.95})`);
