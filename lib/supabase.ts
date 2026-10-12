@@ -95,6 +95,9 @@ export async function getSiteContentFromSupabase() {
             address: brandRes.data.contact_address,
             city: brandRes.data.contact_city,
             hours: brandRes.data.contact_hours,
+            whatsapp: brandRes.data.contact_whatsapp || brandRes.data.contact_phone_mobile || '+91 98250 14892',
+            facebook: brandRes.data.facebook_url || brandRes.data.contact_facebook || 'https://facebook.com',
+            instagram: brandRes.data.instagram_url || brandRes.data.contact_instagram || 'https://instagram.com',
           },
         }
       : undefined;

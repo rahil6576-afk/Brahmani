@@ -1238,6 +1238,73 @@ function AdminContent() {
                       } border text-xs px-3.5 py-2.5 outline-none font-mono`}
                     />
                   </div>
+
+                  {/* Social Media & WhatsApp Channels */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+                    <div>
+                      <label className={`block text-[11px] font-mono ${isNight ? 'text-[#8C9BAA]' : 'text-[#4B5663] font-semibold'} uppercase mb-1.5`}>
+                        Facebook Page URL
+                      </label>
+                      <input
+                        type="url"
+                        value={brandForm.contact?.facebook || ''}
+                        onChange={(e) =>
+                          setBrandForm({
+                            ...brandForm,
+                            contact: { ...brandForm.contact, facebook: e.target.value },
+                          })
+                        }
+                        placeholder="https://facebook.com/brahmani"
+                        className={`w-full ${
+                          isNight
+                            ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
+                            : 'bg-[#FAF9F6] border-[#DDD9CE] text-[#11161A] focus:border-[#FFC107] focus:bg-white'
+                        } border text-xs px-3.5 py-2.5 outline-none font-mono`}
+                      />
+                    </div>
+                    <div>
+                      <label className={`block text-[11px] font-mono ${isNight ? 'text-[#8C9BAA]' : 'text-[#4B5663] font-semibold'} uppercase mb-1.5`}>
+                        Instagram Profile URL
+                      </label>
+                      <input
+                        type="url"
+                        value={brandForm.contact?.instagram || ''}
+                        onChange={(e) =>
+                          setBrandForm({
+                            ...brandForm,
+                            contact: { ...brandForm.contact, instagram: e.target.value },
+                          })
+                        }
+                        placeholder="https://instagram.com/brahmani"
+                        className={`w-full ${
+                          isNight
+                            ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
+                            : 'bg-[#FAF9F6] border-[#DDD9CE] text-[#11161A] focus:border-[#FFC107] focus:bg-white'
+                        } border text-xs px-3.5 py-2.5 outline-none font-mono`}
+                      />
+                    </div>
+                    <div>
+                      <label className={`block text-[11px] font-mono ${isNight ? 'text-[#8C9BAA]' : 'text-[#4B5663] font-semibold'} uppercase mb-1.5`}>
+                        Direct WhatsApp Number / Link
+                      </label>
+                      <input
+                        type="text"
+                        value={brandForm.contact?.whatsapp || ''}
+                        onChange={(e) =>
+                          setBrandForm({
+                            ...brandForm,
+                            contact: { ...brandForm.contact, whatsapp: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. +91 98250 14892"
+                        className={`w-full ${
+                          isNight
+                            ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
+                            : 'bg-[#FAF9F6] border-[#DDD9CE] text-[#11161A] focus:border-[#FFC107] focus:bg-white'
+                        } border text-xs px-3.5 py-2.5 outline-none font-mono`}
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Hero Background Videos & Cinematic Media */}

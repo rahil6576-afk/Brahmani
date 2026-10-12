@@ -37,6 +37,9 @@ export interface BrandData {
     address: string;
     city: string;
     hours: string;
+    whatsapp?: string;
+    facebook?: string;
+    instagram?: string;
   };
 }
 

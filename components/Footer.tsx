@@ -4,11 +4,37 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ArrowRight, ShieldCheck, Lock, X, FileText, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, X, FileText, CheckCircle2, Phone, Mail } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { useContent } from '@/lib/contentContext';
 import { BRAND as FALLBACK_BRAND } from '@/lib/constants';
 import CircuitTreeAnimation from '@/components/CircuitTreeAnimation';
+
+function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+    </svg>
+  );
+}
+
+function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.301-.15-1.777-.876-2.053-.976-.275-.101-.476-.15-.676.15-.2.301-.777.976-.953 1.177-.175.2-.351.226-.652.075s-1.272-.469-2.423-1.495c-.896-.799-1.501-1.786-1.677-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.301-.501.101-.2.05-.376-.025-.526-.075-.15-.676-1.63-.927-2.232-.244-.587-.492-.507-.676-.516l-.577-.01c-.2 0-.526.075-.802.376s-1.053 1.028-1.053 2.508c0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.311 1.279.497 1.716.636.721.23 1.377.197 1.896.12.577-.087 1.777-.727 2.028-1.43.25-.702.25-1.304.175-1.43-.075-.125-.276-.201-.577-.351zM12.04 2C6.544 2 2.076 6.467 2.076 11.964c0 1.758.459 3.474 1.332 4.989L2 22l5.215-1.368c1.458.795 3.1 1.214 4.825 1.214 5.496 0 9.964-4.467 9.964-9.964S17.536 2 12.04 2zm0 18.232c-1.508 0-2.986-.406-4.275-1.174l-.307-.182-3.176.833.848-3.096-.2-.318c-.843-1.342-1.288-2.898-1.288-4.509 0-4.57 3.718-8.288 8.288-8.288 4.57 0 8.288 3.718 8.288 8.288 0 4.57-3.718 8.288-8.288 8.288z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   const pathname = usePathname();
@@ -22,6 +48,16 @@ export default function Footer() {
   if (pathname?.startsWith('/admin')) {
     return null;
   }
+
+  // Social & contact channels from Admin state or fallbacks
+  const fbUrl = (BRAND.contact?.facebook || 'https://facebook.com').trim();
+  const igUrl = (BRAND.contact?.instagram || 'https://instagram.com').trim();
+  const rawWhatsApp = (BRAND.contact?.whatsapp || BRAND.contact?.phoneMobile || '+91 98250 14892').trim();
+  const cleanWhatsAppNumber = rawWhatsApp.replace(/[^0-9]/g, '');
+  const whatsappUrl = `https://wa.me/${cleanWhatsAppNumber}?text=${encodeURIComponent("Hello Brahmani Electrical & Solar, I would like to inquire about your services.")}`;
+  const phoneDisplay = BRAND.contact?.phoneMobile || BRAND.contact?.phone || '+91 98250 14892';
+  const phoneClean = phoneDisplay.replace(/[^0-9+]/g, '');
+  const emailDisplay = BRAND.contact?.email || 'info@brahmani.com';
 
   return (
     <footer
@@ -51,7 +87,7 @@ export default function Footer() {
           {/* Subtle energy grid pattern in banner */}
           <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           
-          {/* Radial ambient gold energy aura (hidden on small mobile to reduce fill rate) */}
+          {/* Radial ambient gold energy aura */}
           <div className="hidden sm:block absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#FFC107]/10 blur-3xl pointer-events-none" />
           <div className="hidden sm:block absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#FFC107]/5 blur-3xl pointer-events-none" />
 
@@ -109,126 +145,103 @@ export default function Footer() {
               Engineering excellence across utility solar, industrial distribution, and automated switchgear.
             </p>
 
+            {/* Social Icons & ISO Certification */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <div
-                className={`flex items-center gap-2 text-xs font-mono px-3 py-1.5 border transition-colors ${
+              {/* Facebook Icon Link */}
+              <a
+                href={fbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Brahmani Facebook Page"
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-lg border transition-all duration-300 group ${
                   isNight
-                    ? 'text-[#A5ACB2] bg-[#11171D] border-[#222B32]'
-                    : 'text-[#3E4953] bg-[#FFFFFF] border-[#D6D3C9]'
+                    ? 'bg-[#11171D] border-[#222B32] text-[#A5ACB2] hover:text-[#0A0D0F] hover:bg-[#FFC107] hover:border-[#FFC107] hover:shadow-[0_0_16px_rgba(255,193,7,0.4)]'
+                    : 'bg-[#FFFFFF] border-[#D6D3C9] text-[#3E4953] hover:text-[#0A0D0F] hover:bg-[#FFC107] hover:border-[#FFC107] hover:shadow-[0_0_16px_rgba(255,193,7,0.3)]'
+                }`}
+                title="Facebook"
+              >
+                <FacebookIcon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+              </a>
+
+              {/* Instagram Icon Link */}
+              <a
+                href={igUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Brahmani Instagram Profile"
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-lg border transition-all duration-300 group ${
+                  isNight
+                    ? 'bg-[#11171D] border-[#222B32] text-[#A5ACB2] hover:text-[#0A0D0F] hover:bg-[#FFC107] hover:border-[#FFC107] hover:shadow-[0_0_16px_rgba(255,193,7,0.4)]'
+                    : 'bg-[#FFFFFF] border-[#D6D3C9] text-[#3E4953] hover:text-[#0A0D0F] hover:bg-[#FFC107] hover:border-[#FFC107] hover:shadow-[0_0_16px_rgba(255,193,7,0.3)]'
+                }`}
+                title="Instagram"
+              >
+                <InstagramIcon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+              </a>
+
+              {/* ISO Certification Badge */}
+              <div
+                className={`flex items-center gap-1.5 text-xs font-mono px-3 py-2 border rounded-lg transition-colors ${
+                  isNight
+                    ? 'text-[#7A838C] bg-[#11171D] border-[#222B32]'
+                    : 'text-[#505D68] bg-[#FFFFFF] border-[#D6D3C9]'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-                <span>GRID DISPATCH ACTIVE</span>
-              </div>
-              <div className={`flex items-center gap-1.5 text-xs font-mono ${isNight ? 'text-[#7A838C]' : 'text-[#505D68]'}`}>
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FFC107]" />
                 <span>ISO 9001:2015</span>
               </div>
             </div>
           </div>
 
-          {/* Column 2: About Us (2 or 3 Cols) */}
+          {/* Column 2: Services (3 Cols) */}
+          <div className="lg:col-span-3 flex flex-col space-y-3.5">
+            <h4
+              className={`text-sm font-bold tracking-wider font-sans uppercase ${
+                isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
+              }`}
+            >
+              Services
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/services#solar-solutions"
+                  className="hover:text-[#FFC107] transition-colors duration-200"
+                >
+                  Commercial &amp; Rooftop Solar
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services#electrical-systems"
+                  className="hover:text-[#FFC107] transition-colors duration-200"
+                >
+                  HT / LT Power Distribution
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services#industrial-power"
+                  className="hover:text-[#FFC107] transition-colors duration-200"
+                >
+                  Industrial Power &amp; Automation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services#maintenance-support"
+                  className="hover:text-[#FFC107] transition-colors duration-200"
+                >
+                  Preventive Maintenance &amp; AMC
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Our Products (2 Cols) */}
           <div className="lg:col-span-2 flex flex-col space-y-3.5">
             <h4
-              className={`text-sm font-bold tracking-wider font-sans ${
-                isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
-              }`}
-            >
-              About Us
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/services#about"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Our Company
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#certifications"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Our Certifications
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#engineering"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Corporate Governance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#why-brahmani"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Why Brahmani
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact#careers"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Careers
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Who We Serve (3 Cols) */}
-          <div className="lg:col-span-3 flex flex-col space-y-3.5">
-            <h4
-              className={`text-sm font-bold tracking-wider font-sans ${
-                isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
-              }`}
-            >
-              Who We Serve
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/services#residential"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Residential
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#commercial"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Commercial
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#industrial"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Industrial
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#utility"
-                  className="hover:text-[#FFC107] transition-colors duration-200"
-                >
-                  Utility &amp; Solar Parks
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Our Products (3 Cols) */}
-          <div className="lg:col-span-3 flex flex-col space-y-3.5">
-            <h4
-              className={`text-sm font-bold tracking-wider font-sans ${
+              className={`text-sm font-bold tracking-wider font-sans uppercase ${
                 isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
               }`}
             >
@@ -264,7 +277,7 @@ export default function Footer() {
                   href="/products"
                   className="hover:text-[#FFC107] transition-colors duration-200"
                 >
-                  Switchgear &amp; Distribution
+                  Switchgear &amp; Panels
                 </Link>
               </li>
               <li>
@@ -277,6 +290,69 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Column 4: Contact Us (3 Cols) */}
+          <div className="lg:col-span-3 flex flex-col space-y-3.5">
+            <h4
+              className={`text-sm font-bold tracking-wider font-sans uppercase ${
+                isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
+              }`}
+            >
+              Contact Us
+            </h4>
+            <div className="space-y-3 text-sm">
+              {/* Phone */}
+              <a
+                href={`tel:${phoneClean}`}
+                className="flex items-start gap-2.5 group hover:text-[#FFC107] transition-colors"
+              >
+                <div className={`p-1.5 rounded border transition-colors ${
+                  isNight ? 'bg-[#11171D] border-[#222B32]' : 'bg-[#FFFFFF] border-[#D6D3C9]'
+                }`}>
+                  <Phone className="w-3.5 h-3.5 text-[#FFC107] group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <span className="block text-[11px] font-mono uppercase tracking-wider opacity-60">Phone</span>
+                  <span className="font-medium text-xs sm:text-sm">{phoneDisplay}</span>
+                </div>
+              </a>
+
+              {/* Email */}
+              <a
+                href={`mailto:${emailDisplay}`}
+                className="flex items-start gap-2.5 group hover:text-[#FFC107] transition-colors"
+              >
+                <div className={`p-1.5 rounded border transition-colors ${
+                  isNight ? 'bg-[#11171D] border-[#222B32]' : 'bg-[#FFFFFF] border-[#D6D3C9]'
+                }`}>
+                  <Mail className="w-3.5 h-3.5 text-[#FFC107] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="break-all">
+                  <span className="block text-[11px] font-mono uppercase tracking-wider opacity-60">Email</span>
+                  <span className="font-medium text-xs sm:text-sm">{emailDisplay}</span>
+                </div>
+              </a>
+
+              {/* WhatsApp */}
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2.5 group hover:text-[#25D366] transition-colors"
+                title="Chat on WhatsApp"
+              >
+                <div className={`p-1.5 rounded border transition-colors ${
+                  isNight ? 'bg-[#11171D] border-[#222B32]' : 'bg-[#FFFFFF] border-[#D6D3C9]'
+                }`}>
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <span className="block text-[11px] font-mono uppercase tracking-wider opacity-60">WhatsApp</span>
+                  <span className="font-medium text-xs sm:text-sm">{rawWhatsApp}</span>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* ==================================================================== */}
@@ -287,17 +363,12 @@ export default function Footer() {
             isNight ? 'border-[#1A232E] text-[#6E7882]' : 'border-[#DDD8CE] text-[#636F7B]'
           }`}
         >
-          {/* Left: Copyright */}
-          <div className="flex items-center gap-2">
-            <span>&copy; {new Date().getFullYear()} {BRAND.name}.</span>
+          {/* Left: Copyright and All Rights Reserved Together */}
+          <div className="flex items-center gap-2 text-center md:text-left">
+            <span>&copy; {new Date().getFullYear()} {BRAND.name}. All Rights Reserved.</span>
           </div>
 
-          {/* Center: All Rights Reserved */}
-          <div className="text-center">
-            <span>All Rights Reserved.</span>
-          </div>
-
-          {/* Right: Privacy Policy | Terms & Conditions (+ subtle Admin link) */}
+          {/* Right: Privacy Policy | Terms & Conditions (Admin removed) */}
           <div className="flex items-center gap-3 sm:gap-4 font-mono text-[11px]">
             <button
               onClick={() => setModalType('privacy')}
@@ -312,15 +383,6 @@ export default function Footer() {
             >
               Terms &amp; Conditions
             </button>
-            <span className="hidden sm:inline">|</span>
-            <Link
-              href="/admin"
-              className="hidden sm:inline-flex items-center gap-1 opacity-70 hover:opacity-100 hover:text-[#FFC107] transition-all"
-              title="Admin Console"
-            >
-              <Lock className="w-3 h-3" />
-              <span>Admin</span>
-            </Link>
           </div>
         </div>
       </div>

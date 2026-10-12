@@ -40,7 +40,10 @@ export const BRAND = {
     // TODO_VERIFY: Confirm exact registered facility / corporate park street address before production
     address: "Brahmani Corporate Park, S.G. Highway, Ahmedabad, Gujarat 380054, India",
     city: "Ahmedabad, Gujarat, India",
-    hours: "Mon to Sat, 9:00 to 18:00"
+    hours: "Mon to Sat, 9:00 to 18:00",
+    whatsapp: "+91 98250 14892",
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com"
   }
 };
 
