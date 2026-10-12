@@ -59,10 +59,10 @@ export default function LightEnvironment() {
         }}
       />
 
-      {/* 2. PHYSICAL LAMP ILLUMINATION ON NAVBAR & TOP HERO (Smooth CSS crossfade) */}
-      {/* Subtle warm wash centered beneath the hanging lamp location (top left header area) */}
+      {/* 2. PHYSICAL LAMP ILLUMINATION ON NAVBAR & TOP HERO (Optimized for desktop) */}
+      {/* Subtle warm wash centered beneath the hanging lamp location */}
       <div
-        className={`absolute top-0 left-0 w-[480px] h-[360px] pointer-events-none transition-opacity duration-500 ease-out ${
+        className={`hidden sm:block absolute top-0 left-0 w-[480px] h-[360px] pointer-events-none transition-opacity duration-500 ease-out ${
           isNight ? 'opacity-75' : 'opacity-0'
         }`}
         style={{
@@ -84,9 +84,9 @@ export default function LightEnvironment() {
         }}
       />
 
-      {/* Ambient downward throw illuminating the top hero area */}
+      {/* Ambient downward throw illuminating the top hero area (Desktop only for max mobile FPS) */}
       <div
-        className={`absolute top-16 left-0 w-[640px] h-[480px] pointer-events-none transition-opacity duration-500 ease-out ${
+        className={`hidden md:block absolute top-16 left-0 w-[640px] h-[480px] pointer-events-none transition-opacity duration-500 ease-out ${
           isNight ? 'opacity-55' : 'opacity-0'
         }`}
         style={{
@@ -96,9 +96,9 @@ export default function LightEnvironment() {
         }}
       />
 
-      {/* 3. CINEMATIC ULTRA-FINE FILM GRAIN (Phase 8: Opacity 0.03, non-intrusive) */}
+      {/* 3. CINEMATIC ULTRA-FINE FILM GRAIN (Desktop only: SVG feTurbulence is bypassed on mobile for butter-smooth Android scrolling) */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.032]"
+        className="hidden md:block absolute inset-0 pointer-events-none opacity-[0.032]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'repeat',

@@ -30,8 +30,9 @@ export default function CustomCursor() {
 
     const isTouch =
       'ontouchstart' in window ||
-      navigator.maxTouchPoints > 0 ||
+      (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
       window.matchMedia('(pointer: coarse)').matches ||
+      window.matchMedia('(hover: none)').matches ||
       window.innerWidth < 1024;
 
     if (isTouch || reducedMotion) {

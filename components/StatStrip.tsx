@@ -17,7 +17,7 @@ function CounterNumber({ targetValue, suffix }: { targetValue: number; suffix: s
 
     let start = 0;
     const duration = 1800;
-    const stepTime = 16;
+    const stepTime = 32;
     const steps = Math.floor(duration / stepTime);
     const increment = targetValue / steps;
     let currentStep = 0;

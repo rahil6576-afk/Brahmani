@@ -12,7 +12,10 @@ if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
-const ALLOWED_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif', '.mp4', '.webm'];
+const PHOTO_EXTENSIONS = ['.jpeg', '.jpg', '.png', '.webp'];
+const VIDEO_EXTENSIONS = ['.mp4', '.webm'];
+const ALLOWED_EXTENSIONS = [...PHOTO_EXTENSIONS, ...VIDEO_EXTENSIONS];
+const DISALLOWED_DOCS = ['.pdf', '.docx', '.doc', '.xlsx', '.xls', '.ppt', '.pptx', '.txt', '.zip', '.rar'];
 
 export async function GET() {
   try {
@@ -106,15 +109,50 @@ export async function POST(req: NextRequest) {
 
     const originalName = file.name || 'image.jpg';
     const ext = path.extname(originalName).toLowerCase();
+    const mime = (file.type || '').toLowerCase();
+    const mediaType = formData.get('type') as string | null;
 
-    if (!ALLOWED_EXTENSIONS.includes(ext)) {
+    // Explicitly reject PDF, DOCX, and documents
+    if (
+      DISALLOWED_DOCS.includes(ext) ||
+      mime.includes('pdf') ||
+      mime.includes('word') ||
+      mime.includes('officedocument') ||
+      mime.includes('document')
+    ) {
       return NextResponse.json(
         {
           success: false,
-          error: `Invalid file format. Allowed: ${ALLOWED_EXTENSIONS.join(', ')}`,
+          error: 'PDF and DOCX document files are not allowed. Only JPEG, PNG, JPG, and WEBP photos are permitted.',
         },
         { status: 400 }
       );
+    }
+
+    // Check if video upload was specifically requested
+    const isVideoUpload = mediaType === 'video' || VIDEO_EXTENSIONS.includes(ext);
+
+    if (isVideoUpload) {
+      if (!VIDEO_EXTENSIONS.includes(ext)) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: `Invalid video format. Allowed video formats: ${VIDEO_EXTENSIONS.join(', ')}`,
+          },
+          { status: 400 }
+        );
+      }
+    } else {
+      // Photo upload check: strictly JPEG, JPG, PNG, WEBP
+      if (!PHOTO_EXTENSIONS.includes(ext)) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Invalid file format. Only JPEG, PNG, JPG, and WEBP photos are allowed. PDF and DOCX are not permitted.',
+          },
+          { status: 400 }
+        );
+      }
     }
 
     // 100MB limit check (to allow HD MP4 hero background videos)

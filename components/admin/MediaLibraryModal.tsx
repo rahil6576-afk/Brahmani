@@ -78,11 +78,22 @@ export default function MediaLibraryModal({
 
   const handleFileUpload = async (file: File) => {
     setUploadError(null);
+
+    const ext = '.' + (file.name.split('.').pop() || '').toLowerCase();
+    const allowed = ['.jpeg', '.jpg', '.png', '.webp'];
+    const isDoc = ['.pdf', '.docx', '.doc'].includes(ext) || file.type.includes('pdf') || file.type.includes('word');
+
+    if (isDoc || !allowed.includes(ext)) {
+      setUploadError(`"${file.name}": Only JPEG, PNG, JPG, and WEBP photos are allowed. PDF and DOCX files are not permitted.`);
+      return;
+    }
+
     setUploading(true);
 
     try {
       const formData = new FormData();
       formData.append('file', file);
+      formData.append('type', 'photo');
 
       const res = await fetch('/api/upload', {
         method: 'POST',
@@ -256,7 +267,7 @@ export default function MediaLibraryModal({
             <input
               type="file"
               ref={fileInputRef}
-              accept="image/png,image/jpeg,image/webp,image/svg+xml,image/jpg"
+              accept=".jpeg,.jpg,.png,.webp,image/jpeg,image/png,image/webp"
               className="hidden"
               onChange={(e) => {
                 const file = e.target.files?.[0];

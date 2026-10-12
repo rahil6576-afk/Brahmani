@@ -113,7 +113,7 @@ export default function HeroVideo({
     >
       {/* 1. BACKGROUND LAYERS: DUAL VIDEO CROSSFADE OR PAGE-SPECIFIC CINEMATIC PHOTO */}
       <motion.div
-        style={{ y: bgY }}
+        style={{ y: isMobileDevice ? '0%' : bgY }}
         className="absolute inset-0 w-full h-[120%] -top-[10%] select-none pointer-events-none"
       >
         {useVideo ? (
@@ -123,10 +123,10 @@ export default function HeroVideo({
               className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-out"
               style={{ opacity: nightOpacity }}
             >
-              {/* Subtle slow continuous camera movement (scale 1.00 -> 1.035) */}
+              {/* Subtle slow camera movement on desktop, static on mobile for maximum battery & FPS */}
               <motion.div
                 animate={
-                  reducedMotion
+                  reducedMotion || isMobileDevice
                     ? { scale: 1 }
                     : { scale: [1, 1.035, 1] }
                 }
@@ -144,7 +144,7 @@ export default function HeroVideo({
                   loop
                   playsInline
                   poster={heroPosterSrc}
-                  preload="auto"
+                  preload="metadata"
                   className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12]"
                 >
                   <source src={heroVideoNightSrc} type="video/mp4" />
@@ -160,7 +160,7 @@ export default function HeroVideo({
               {dayVideoLoaded ? (
                 <motion.div
                   animate={
-                    reducedMotion
+                    reducedMotion || isMobileDevice
                       ? { scale: 1 }
                       : { scale: [1, 1.03, 1] }
                   }

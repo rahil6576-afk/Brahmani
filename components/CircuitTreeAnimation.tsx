@@ -40,8 +40,10 @@ interface CircuitTreeAnimationProps {
 }
 
 export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnimationProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isInViewport, setIsInViewport] = useState(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
@@ -54,14 +56,28 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
     };
   }, []);
 
+  // IntersectionObserver to pause rendering when footer is not in view
   useEffect(() => {
-    if (!imageLoaded || !imageRef.current || !canvasRef.current) return;
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!imageLoaded || !imageRef.current || !canvasRef.current || !isInViewport) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d', { willReadFrequently: false });
     if (!ctx) return;
 
     const img = imageRef.current;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     // Create offscreen buffer for masked electrical effect
     const offCanvas = document.createElement('canvas');
@@ -70,6 +86,8 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
 
     let animId: number;
     let startTime: number | null = null;
+    let lastRenderTime = 0;
+    const targetInterval = isMobile ? 1000 / 30 : 1000 / 60; // 30 FPS on mobile, 60 FPS on desktop
     const DURATION = 7.0; // 7.0 second seamless loop
 
     // Helper: generate jagged lightning arc between two points
@@ -89,7 +107,7 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
       const dx = x2 - x1;
       const dy = y2 - y1;
       const dist = Math.hypot(dx, dy);
-      const segments = Math.max(3, Math.floor(dist / 14));
+      const segments = Math.max(3, Math.floor(dist / (isMobile ? 22 : 14)));
 
       for (let s = 1; s < segments; s++) {
         const t = s / segments;
@@ -119,12 +137,21 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
     };
 
     const render = (now: number) => {
+      // Throttle rendering on mobile for butter-smooth scrolling
+      if (isMobile && now - lastRenderTime < targetInterval) {
+        animId = requestAnimationFrame(render);
+        return;
+      }
+      lastRenderTime = now;
+
       if (!startTime) startTime = now;
       const elapsed = (now - startTime) / 1000;
       const loopTime = elapsed % DURATION;
       const p = loopTime / DURATION; // 0.0 to 1.0 progress
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // Cap DPR to 1.5 on mobile to save massive fill-rate on Android devices
+      const maxDpr = isMobile ? 1.5 : 2;
+      const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
       const displayWidth = canvas.clientWidth || 120;
       const displayHeight = canvas.clientHeight || 120;
 
@@ -341,10 +368,10 @@ export default function CircuitTreeAnimation({ className = '' }: CircuitTreeAnim
     return () => {
       cancelAnimationFrame(animId);
     };
-  }, [imageLoaded]);
+  }, [imageLoaded, isInViewport]);
 
   return (
-    <div className={`relative flex items-center justify-center select-none ${className}`}>
+    <div ref={containerRef} className={`relative flex items-center justify-center select-none ${className}`}>
       {/* High-Performance Canvas Animation without outer glow halo */}
       <canvas
         ref={canvasRef}

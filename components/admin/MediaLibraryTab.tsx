@@ -57,12 +57,26 @@ export default function MediaLibraryTab() {
 
   const handleFileUpload = async (files: FileList | File[]) => {
     setUploadError(null);
+
+    const fileList = Array.from(files);
+    const allowed = ['.jpeg', '.jpg', '.png', '.webp'];
+
+    for (const file of fileList) {
+      const ext = '.' + (file.name.split('.').pop() || '').toLowerCase();
+      const isDoc = ['.pdf', '.docx', '.doc'].includes(ext) || file.type.includes('pdf') || file.type.includes('word');
+      if (isDoc || !allowed.includes(ext)) {
+        setUploadError(`"${file.name}": Only JPEG, PNG, JPG, and WEBP photos are allowed. PDF and DOCX files are not permitted.`);
+        return;
+      }
+    }
+
     setUploading(true);
 
     try {
-      for (const file of Array.from(files)) {
+      for (const file of fileList) {
         const formData = new FormData();
         formData.append('file', file);
+        formData.append('type', 'photo');
 
         const res = await fetch('/api/upload', {
           method: 'POST',
@@ -131,7 +145,7 @@ export default function MediaLibraryTab() {
         type="file"
         ref={fileInputRef}
         multiple
-        accept="image/png,image/jpeg,image/webp,image/svg+xml,image/jpg"
+        accept=".jpeg,.jpg,.png,.webp,image/jpeg,image/png,image/webp"
         className="hidden"
         onChange={(e) => {
           if (e.target.files?.length) {

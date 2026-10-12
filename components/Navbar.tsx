@@ -29,15 +29,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-700 backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-700 backdrop-blur-sm sm:backdrop-blur-md ${
         isNight
-          ? 'bg-[#080B0D]/90 border-b border-[#1E262E]'
-          : 'bg-[#F4F3EF]/92 border-b border-[#E2E0D8]'
+          ? 'bg-[#080B0D]/95 sm:bg-[#080B0D]/90 border-b border-[#1E262E]'
+          : 'bg-[#F4F3EF]/96 sm:bg-[#F4F3EF]/92 border-b border-[#E2E0D8]'
       }`}
     >
-      {/* Dynamic warm illumination wash radiating from the lamp onto the navbar rail */}
+      {/* Dynamic warm illumination wash radiating from the lamp onto the navbar rail (desktop only) */}
       <div
-        className={`absolute top-0 left-0 w-[420px] h-full pointer-events-none transition-opacity duration-500 ease-out ${
+        className={`hidden sm:block absolute top-0 left-0 w-[420px] h-full pointer-events-none transition-opacity duration-500 ease-out ${
           isNight ? 'opacity-80' : 'opacity-0'
         }`}
         style={{

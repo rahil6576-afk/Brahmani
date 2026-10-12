@@ -42,7 +42,7 @@ export default function Footer() {
         {/* 1. TOP BANNER / CTA CARD: "Turn India's Sun into Your Daily Savings" */}
         {/* ==================================================================== */}
         <div
-          className={`relative rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 mb-14 sm:mb-16 overflow-hidden border transition-all duration-500 ${
+          className={`relative rounded-2xl sm:rounded-3xl p-6 xs:p-7 sm:p-10 md:p-12 mb-10 sm:mb-16 overflow-hidden border transition-all duration-500 ${
             isNight
               ? 'bg-gradient-to-br from-[#0F151C] via-[#111A24] to-[#0D141C] border-[#222E3C] shadow-[0_12px_40px_rgba(0,0,0,0.45)]'
               : 'bg-[#121921] text-[#F5F5F2] border-[#24303E] shadow-[0_12px_35px_rgba(0,0,0,0.18)]'
@@ -51,35 +51,35 @@ export default function Footer() {
           {/* Subtle energy grid pattern in banner */}
           <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
           
-          {/* Radial ambient gold energy aura */}
-          <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#FFC107]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#FFC107]/5 blur-3xl pointer-events-none" />
+          {/* Radial ambient gold energy aura (hidden on small mobile to reduce fill rate) */}
+          <div className="hidden sm:block absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#FFC107]/10 blur-3xl pointer-events-none" />
+          <div className="hidden sm:block absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#FFC107]/5 blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10">
             {/* Left: Headline & Pitch */}
-            <div className="flex-1 max-w-xl text-left">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
+            <div className="flex-1 max-w-xl text-center lg:text-left">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.18]">
                 Turn India&apos;s Sun <br className="hidden sm:inline" />
                 into Your{' '}
                 <span className="text-[#FFC107] drop-shadow-[0_0_24px_rgba(255,193,7,0.4)]">
                   Daily Savings.
                 </span>
               </h2>
-              <p className="mt-3.5 text-sm sm:text-base text-[#9DA9B6] max-w-lg leading-relaxed">
+              <p className="mt-3 text-xs xs:text-sm sm:text-base text-[#9DA9B6] max-w-lg mx-auto lg:mx-0 leading-relaxed">
                 Pioneering high-efficiency solar installations and engineered electrical solutions tailored for commercial enterprises, industrial plants, and homes across India.
               </p>
             </div>
 
             {/* Center: Large Focal Animated Golden Circuit Tree */}
-            <div className="shrink-0 flex items-center justify-center py-2 lg:py-0">
-              <CircuitTreeAnimation className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-60 lg:h-60" />
+            <div className="shrink-0 flex items-center justify-center py-1 sm:py-2 lg:py-0">
+              <CircuitTreeAnimation className="w-32 h-32 xs:w-40 xs:h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-60 lg:h-60" />
             </div>
 
             {/* Right: High-visibility CTA Pill Button */}
             <div className="shrink-0 flex items-center justify-center lg:justify-end w-full lg:w-auto">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#FFC107] text-[#0A0D0F] font-bold text-sm sm:text-base tracking-wide transition-all duration-300 hover:bg-[#FFD54F] hover:shadow-[0_0_32px_rgba(255,193,7,0.6)] hover:scale-[1.04] active:scale-[0.98] group whitespace-nowrap"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#FFC107] text-[#0A0D0F] font-bold text-sm sm:text-base tracking-wide transition-all duration-300 hover:bg-[#FFD54F] hover:shadow-[0_0_32px_rgba(255,193,7,0.6)] hover:scale-[1.03] active:scale-[0.98] group whitespace-nowrap"
               >
                 <span>Get in Touch</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

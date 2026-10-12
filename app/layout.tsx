@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -14,6 +14,13 @@ const manrope = Manrope({
   variable: '--font-manrope',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#0A0D0F',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://brahmani.com'),

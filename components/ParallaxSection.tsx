@@ -12,18 +12,26 @@ export default function ParallaxSection() {
   const { theme } = useTheme();
   const isNight = theme === 'night';
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth < 768);
+    }
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["24%", "-24%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], isMobile ? ["-4%", "4%"] : ["-12%", "12%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], isMobile ? ["4%", "-4%"] : ["24%", "-24%"]);
 
   return (
     <section
       ref={containerRef}
-      className={`relative w-full h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden border-y transition-colors duration-700 ${
+      className={`relative w-full min-h-[60vh] sm:min-h-[75vh] py-16 sm:py-24 flex items-center justify-center overflow-hidden border-y transition-colors duration-700 ${
         isNight
           ? 'bg-[#0A0D0F] border-[#1E262E]'
           : 'bg-[#F4F3EF] border-[#E0DDD4]'
@@ -32,7 +40,7 @@ export default function ParallaxSection() {
       {/* 1. Full-width visual background with slower parallax */}
       <motion.div
         style={{ y: bgY }}
-        className="absolute inset-0 w-full h-[125%] -top-[12%] pointer-events-none select-none"
+        className="absolute inset-0 w-full h-[115%] -top-[7%] pointer-events-none select-none"
       >
         <Image
           src="/images/parallax-clean-energy.jpg"
