@@ -23,25 +23,22 @@ export interface ProductItem {
 }
 
 export const BRAND = {
-  name: "BRAHMANI",
-  tagline: "POWERING TOMORROW",
+  name: "BRAHMANI ENTERPRISE",
+  tagline: "Safe Power | Reliable Solutions | For a Better Tomorrow",
   subtitle: "Electrical & Solar Solutions",
+  govtApproved: "Government Approved Electrical Contractor",
   logoHorizontal: "/images/brahmani-logo-horizontal.png",
   logoDark: "/images/brahmani-logo-dark.png",
   logoOriginal: "/images/brahmani-logo-original.png",
   logoMark: "/images/brahmani-mark-dark.png",
   contact: {
-    // TODO_VERIFY: Confirm official primary business landline before production
-    phone: "+91 79 4890 2811",
-    // TODO_VERIFY: Confirm registered WhatsApp & emergency line before production
-    phoneMobile: "+91 98250 14892",
-    // TODO_VERIFY: Confirm designated inquiry mailbox domain before production
-    email: "info@brahmani.com",
-    // TODO_VERIFY: Confirm exact registered facility / corporate park street address before production
+    phone: "+91 63560 66265",
+    phoneMobile: "+91 88665 53646",
+    email: "brahmanienterprise.019@gmail.com",
     address: "Brahmani Corporate Park, S.G. Highway, Ahmedabad, Gujarat 380054, India",
     city: "Ahmedabad, Gujarat, India",
     hours: "Mon to Sat, 9:00 to 18:00",
-    whatsapp: "+91 98250 14892",
+    whatsapp: "+91 63560 66265",
     facebook: "https://facebook.com",
     instagram: "https://instagram.com"
   }

@@ -2,14 +2,18 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ShieldCheck, Phone, Mail } from 'lucide-react';
 import HeroVideo from '@/components/HeroVideo';
 import ContactForm from '@/components/ContactForm';
 import PageTransition from '@/components/PageTransition';
 import { useTheme } from '@/components/ThemeProvider';
+import { useContent } from '@/lib/contentContext';
 
 export default function ContactPage() {
   const { theme } = useTheme();
+  const { content } = useContent();
   const isNight = theme === 'night';
+  const brand = content?.brand;
 
   useEffect(() => {
     const scrollToForm = () => {
@@ -43,19 +47,35 @@ export default function ContactPage() {
       >
         <div className="max-w-4xl flex flex-col items-start pt-8 pb-12">
           {/* Eyebrow badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 border text-[11px] sm:text-xs font-mono font-bold tracking-[0.22em] uppercase mb-6 backdrop-blur-md transition-colors ${
-              isNight
-                ? 'bg-[#121920]/90 border-[#242E38] text-[#FFC107]'
-                : 'bg-[#FFFFFF]/90 border-[#DEDCD4] text-[#E6A900]'
-            }`}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span>GET IN TOUCH</span>
-          </motion.div>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 border text-[11px] sm:text-xs font-mono font-bold tracking-[0.22em] uppercase backdrop-blur-md transition-colors ${
+                isNight
+                  ? 'bg-[#121920]/90 border-[#242E38] text-[#FFC107]'
+                  : 'bg-[#FFFFFF]/90 border-[#DEDCD4] text-[#E6A900]'
+              }`}
+            >
+              <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
+              <span>GET IN TOUCH</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 border text-[11px] sm:text-xs font-mono font-bold tracking-[0.12em] uppercase backdrop-blur-md transition-colors ${
+                isNight
+                  ? 'bg-[#182129]/90 border-[#FFC107]/40 text-[#FFC107] shadow-[0_0_16px_rgba(255,193,7,0.15)]'
+                  : 'bg-[#FFF9E6]/95 border-[#FFC107]/60 text-[#A07400] shadow-xs'
+              }`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FFC107]" />
+              <span>{brand?.govtApproved || 'GOVERNMENT APPROVED ELECTRICAL CONTRACTOR'}</span>
+            </motion.div>
+          </div>
 
           {/* MAIN EDITORIAL HEADLINE WITH CONTRASTING WEIGHTS (Phase 19):
               "LET'S POWER YOUR" (font-light)
@@ -135,9 +155,20 @@ export default function ContactPage() {
               <span className={`uppercase ${isNight ? 'text-[#6D7884]' : 'text-[#7A8793]'}`}>
                 EMERGENCY LINE
               </span>
-              <span className={`font-bold ${isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'}`}>
-                +91 98250 14892
-              </span>
+              <div className="flex flex-col items-end gap-0.5">
+                <a
+                  href={`tel:${(brand?.contact?.phone || '+91 63560 66265').replace(/[^0-9+]/g, '')}`}
+                  className="font-bold text-[#FFC107] hover:underline"
+                >
+                  {brand?.contact?.phone || '+91 63560 66265'}
+                </a>
+                <a
+                  href={`tel:${(brand?.contact?.phoneMobile || '+91 88665 53646').replace(/[^0-9+]/g, '')}`}
+                  className={`text-[11px] font-semibold hover:text-[#FFC107] ${isNight ? 'text-[#A0ACB8]' : 'text-[#505D68]'}`}
+                >
+                  {brand?.contact?.phoneMobile || '+91 88665 53646'}
+                </a>
+              </div>
             </div>
             <div
               className={`border p-4 flex items-center justify-between transition-colors ${

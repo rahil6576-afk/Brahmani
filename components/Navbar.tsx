@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, ShieldCheck, Phone, Mail } from 'lucide-react';
 import HangingLamp from './HangingLamp';
 import ThemeLamp from './ThemeLamp';
 import { useTheme } from './ThemeProvider';
@@ -19,6 +19,13 @@ export default function Navbar() {
   const { theme, isNight, themeProgress, pullProgress } = useTheme();
   const { content } = useContent();
   const BRAND = content?.brand;
+
+  const primaryPhone = BRAND?.contact?.phone || '+91 63560 66265';
+  const mobilePhone = BRAND?.contact?.phoneMobile || '+91 88665 53646';
+  const emailAddr = BRAND?.contact?.email || 'brahmanienterprise.019@gmail.com';
+  const primaryPhoneClean = primaryPhone.replace(/[^0-9+]/g, '');
+  const mobilePhoneClean = mobilePhone.replace(/[^0-9+]/g, '');
+  const govtStatus = BRAND?.govtApproved || 'Government Approved Electrical Contractor';
 
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -282,7 +289,7 @@ export default function Navbar() {
                     GET QUOTE →
                   </Link>
                   <a
-                    href="tel:+917948902811"
+                    href={`tel:${primaryPhoneClean}`}
                     className={`px-3 py-2.5 text-center text-xs font-mono font-bold tracking-wider border uppercase transition-colors ${
                       isNight
                         ? 'border-[#26313C] text-[#F5F5F2] hover:border-[#FFC107]'
@@ -293,9 +300,26 @@ export default function Navbar() {
                   </a>
                 </div>
 
-                <div className="pt-2 text-xs flex justify-between items-center text-[#737A80] border-t border-[#1A2228]">
-                  <span>Ahmedabad, Gujarat</span>
-                  <span className="text-[#FFC107] font-semibold">+91 79 4890 2811</span>
+                {/* Mobile Govt Approved & Direct Contact Badges */}
+                <div className="pt-3 space-y-2 border-t border-[#1A2228]/50">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#FFC107]">
+                    <ShieldCheck className="w-4 h-4 shrink-0" />
+                    <span className="font-semibold uppercase tracking-wider">{govtStatus}</span>
+                  </div>
+                  <div className="text-xs flex flex-col gap-1.5 text-[#8E97A0] font-mono">
+                    <a href={`tel:${primaryPhoneClean}`} className="hover:text-[#FFC107] flex items-center gap-2">
+                      <Phone className="w-3.5 h-3.5 text-[#FFC107]" />
+                      <span>{primaryPhone}</span>
+                    </a>
+                    <a href={`tel:${mobilePhoneClean}`} className="hover:text-[#FFC107] flex items-center gap-2">
+                      <Phone className="w-3.5 h-3.5 text-[#FFC107]" />
+                      <span>{mobilePhone}</span>
+                    </a>
+                    <a href={`mailto:${emailAddr}`} className="hover:text-[#FFC107] flex items-center gap-2 break-all">
+                      <Mail className="w-3.5 h-3.5 text-[#FFC107]" />
+                      <span>{emailAddr}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

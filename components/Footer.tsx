@@ -52,12 +52,15 @@ export default function Footer() {
   // Social & contact channels from Admin state or fallbacks
   const fbUrl = (BRAND.contact?.facebook || 'https://facebook.com').trim();
   const igUrl = (BRAND.contact?.instagram || 'https://instagram.com').trim();
-  const rawWhatsApp = (BRAND.contact?.whatsapp || BRAND.contact?.phoneMobile || '+91 98250 14892').trim();
+  const rawWhatsApp = (BRAND.contact?.whatsapp || BRAND.contact?.phone || '+91 63560 66265').trim();
   const cleanWhatsAppNumber = rawWhatsApp.replace(/[^0-9]/g, '');
-  const whatsappUrl = `https://wa.me/${cleanWhatsAppNumber}?text=${encodeURIComponent("Hello Brahmani Electrical & Solar, I would like to inquire about your services.")}`;
-  const phoneDisplay = BRAND.contact?.phoneMobile || BRAND.contact?.phone || '+91 98250 14892';
-  const phoneClean = phoneDisplay.replace(/[^0-9+]/g, '');
-  const emailDisplay = BRAND.contact?.email || 'info@brahmani.com';
+  const whatsappUrl = `https://wa.me/${cleanWhatsAppNumber}?text=${encodeURIComponent("Hello Brahmani Enterprise, I would like to inquire about your electrical services.")}`;
+  const primaryPhone = BRAND.contact?.phone || '+91 63560 66265';
+  const primaryPhoneClean = primaryPhone.replace(/[^0-9+]/g, '');
+  const mobilePhone = BRAND.contact?.phoneMobile || '+91 88665 53646';
+  const mobilePhoneClean = mobilePhone.replace(/[^0-9+]/g, '');
+  const emailDisplay = BRAND.contact?.email || 'brahmanienterprise.019@gmail.com';
+  const govtStatus = BRAND.govtApproved || 'Government Approved Electrical Contractor';
 
   return (
     <footer
@@ -178,6 +181,19 @@ export default function Footer() {
               >
                 <InstagramIcon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
               </a>
+
+              {/* Government Approved Contractor Badge */}
+              <div
+                className={`flex items-center gap-1.5 text-xs font-mono font-bold px-3 py-2 border rounded-lg transition-colors ${
+                  isNight
+                    ? 'text-[#FFC107] bg-[#FFC107]/10 border-[#FFC107]/40 shadow-[0_0_12px_rgba(255,193,7,0.15)]'
+                    : 'text-[#9A7000] bg-[#FFF9E6] border-[#FFC107]/60 shadow-xs'
+                }`}
+                title={govtStatus}
+              >
+                <ShieldCheck className="w-4 h-4 text-[#FFC107]" />
+                <span>Govt. Approved Contractor</span>
+              </div>
 
               {/* ISO Certification Badge */}
               <div
@@ -301,9 +317,9 @@ export default function Footer() {
               Contact Us
             </h4>
             <div className="space-y-3 text-sm">
-              {/* Phone */}
+              {/* Primary Phone */}
               <a
-                href={`tel:${phoneClean}`}
+                href={`tel:${primaryPhoneClean}`}
                 className="flex items-start gap-2.5 group hover:text-[#FFC107] transition-colors"
               >
                 <div className={`p-1.5 rounded border transition-colors ${
@@ -312,8 +328,24 @@ export default function Footer() {
                   <Phone className="w-3.5 h-3.5 text-[#FFC107] group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
-                  <span className="block text-[11px] font-mono uppercase tracking-wider opacity-60">Phone</span>
-                  <span className="font-medium text-xs sm:text-sm">{phoneDisplay}</span>
+                  <span className="block text-[11px] font-mono uppercase tracking-wider opacity-60">Primary Phone</span>
+                  <span className="font-medium text-xs sm:text-sm">{primaryPhone}</span>
+                </div>
+              </a>
+
+              {/* Mobile Hotline */}
+              <a
+                href={`tel:${mobilePhoneClean}`}
+                className="flex items-start gap-2.5 group hover:text-[#FFC107] transition-colors"
+              >
+                <div className={`p-1.5 rounded border transition-colors ${
+                  isNight ? 'bg-[#11171D] border-[#222B32]' : 'bg-[#FFFFFF] border-[#D6D3C9]'
+                }`}>
+                  <Phone className="w-3.5 h-3.5 text-[#FFC107] group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <span className="block text-[11px] font-mono uppercase tracking-wider opacity-60">Mobile Hotline</span>
+                  <span className="font-medium text-xs sm:text-sm">{mobilePhone}</span>
                 </div>
               </a>
 

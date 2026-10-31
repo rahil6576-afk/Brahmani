@@ -1135,10 +1135,27 @@ function AdminContent() {
                     OFFICIAL CORPORATE CONTACT CHANNELS
                   </div>
 
+                  <div>
+                    <label className={`block text-[11px] font-mono ${isNight ? 'text-[#8C9BAA]' : 'text-[#4B5663] font-semibold'} uppercase mb-1.5`}>
+                      Government Approved Status / Accreditation
+                    </label>
+                    <input
+                      type="text"
+                      value={brandForm.govtApproved || ''}
+                      onChange={(e) => setBrandForm({ ...brandForm, govtApproved: e.target.value })}
+                      placeholder="e.g. Government Approved Electrical Contractor"
+                      className={`w-full ${
+                        isNight
+                          ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
+                          : 'bg-[#FAF9F6] border-[#DDD9CE] text-[#11161A] focus:border-[#FFC107] focus:bg-white'
+                      } border text-xs px-3.5 py-2.5 outline-none font-mono`}
+                    />
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={`block text-[11px] font-mono ${isNight ? 'text-[#8C9BAA]' : 'text-[#4B5663] font-semibold'} uppercase mb-1.5`}>
-                        Primary Landline Phone
+                        Primary Contact Phone
                       </label>
                       <input
                         type="text"
@@ -1149,6 +1166,7 @@ function AdminContent() {
                             contact: { ...brandForm.contact, phone: e.target.value },
                           })
                         }
+                        placeholder="e.g. +91 63560 66265"
                         className={`w-full ${
                           isNight
                             ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
@@ -1169,6 +1187,7 @@ function AdminContent() {
                             contact: { ...brandForm.contact, phoneMobile: e.target.value },
                           })
                         }
+                        placeholder="e.g. +91 88665 53646"
                         className={`w-full ${
                           isNight
                             ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
@@ -1189,6 +1208,7 @@ function AdminContent() {
                             contact: { ...brandForm.contact, email: e.target.value },
                           })
                         }
+                        placeholder="e.g. brahmanienterprise.019@gmail.com"
                         className={`w-full ${
                           isNight
                             ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'
@@ -1296,7 +1316,7 @@ function AdminContent() {
                             contact: { ...brandForm.contact, whatsapp: e.target.value },
                           })
                         }
-                        placeholder="e.g. +91 98250 14892"
+                        placeholder="e.g. +91 63560 66265"
                         className={`w-full ${
                           isNight
                             ? 'bg-[#121922] border-[#243140] text-white focus:border-[#FFC107]'

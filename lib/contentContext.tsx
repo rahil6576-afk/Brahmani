@@ -20,6 +20,7 @@ export interface BrandData {
   name: string;
   tagline: string;
   subtitle: string;
+  govtApproved?: string;
   heroPrefix: string;
   heroHighlight: string;
   heroDescription: string;
@@ -142,7 +143,7 @@ const DEFAULT_CONTENT: SiteContentData = {
   projects: DEFAULT_PROJECTS,
   settings: {
     announcementActive: true,
-    announcementText: 'ISO 9001:2015 Certified EPC Contractor | Approved by GEDA & Chief Electrical Inspector',
+    announcementText: 'Government Approved Electrical Contractor | Safe Power • Reliable Solutions • For a Better Tomorrow',
     maintenanceMode: false,
   },
 };

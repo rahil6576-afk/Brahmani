@@ -1,23 +1,24 @@
 {
   "brand": {
-    "name": "BRAHMANI",
-    "tagline": "Engineered for Infinite Resilience • Supabase Verified 1791539627391",
-    "subtitle": "Electrical & Solar Solutions",
+    "name": "BRAHMANI ENTERPRISE",
+    "tagline": "Safe Power | Reliable Solutions | For a Better Tomorrow",
+    "subtitle": "Government Approved Electrical Contractor",
+    "govtApproved": "Government Approved Electrical Contractor",
     "heroPrefix": "POWERING",
     "heroHighlight": "TOMORROW.",
-    "heroDescription": "Precision electrical infrastructure, utility-scale commercial solar arrays, and certified industrial switchgear engineered for long-term operational resilience.",
+    "heroDescription": "Government Approved Electrical Contractor delivering safe, reliable, and compliant electrical solutions across residential, commercial, industrial, and HT/LT power distribution networks.",
     "logoHorizontal": "/images/brahmani-logo-horizontal.png",
     "logoDark": "/images/brahmani-logo-dark.png",
     "logoOriginal": "/images/brahmani-logo-original.png",
     "logoMark": "/images/brahmani-mark-dark.png",
     "contact": {
-      "phone": "+91 79 4890 2811",
-      "phoneMobile": "+91 98250 14892",
-      "email": "info@brahmani.com",
+      "phone": "+91 63560 66265",
+      "phoneMobile": "+91 88665 53646",
+      "email": "brahmanienterprise.019@gmail.com",
       "address": "Brahmani Corporate Park, S.G. Highway, Ahmedabad, Gujarat 380054, India",
       "city": "Ahmedabad, Gujarat, India",
       "hours": "Mon to Sat, 9:00 to 18:00",
-      "whatsapp": "+91 98250 14892",
+      "whatsapp": "+91 63560 66265",
       "facebook": "https://facebook.com",
       "instagram": "https://instagram.com"
     }
@@ -825,7 +826,7 @@
   ],
   "settings": {
     "announcementActive": true,
-    "announcementText": "ISO 9001:2015 Certified EPC Contractor | Approved by GEDA & Chief Electrical Inspector",
+    "announcementText": "Government Approved Electrical Contractor | Safe Power • Reliable Solutions • For a Better Tomorrow",
     "maintenanceMode": false
   }
 }

@@ -6,10 +6,13 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, CheckCircle2, ArrowRight, ShieldCheck, Zap, AlertCircle } from 'lucide-react';
 import { BRAND } from '@/lib/constants';
 import { useTheme } from './ThemeProvider';
+import { useContent } from '@/lib/contentContext';
 import MagneticButton from './MagneticButton';
 
 function ContactFormInner() {
   const { theme, isNight } = useTheme();
+  const { content } = useContent();
+  const brandData = content?.brand || BRAND;
 
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service');
@@ -495,6 +498,23 @@ function ContactFormInner() {
             </h3>
           </div>
 
+          {/* Government Approved Contractor Accreditation Card */}
+          <div
+            className={`mb-6 p-4 border transition-colors ${
+              isNight
+                ? 'bg-gradient-to-br from-[#151D24] to-[#10161C] border-[#FFC107]/40 shadow-[0_0_18px_rgba(255,193,7,0.12)]'
+                : 'bg-gradient-to-br from-[#FFF9E6] to-[#FFF3CC] border-[#FFC107]/60 shadow-xs'
+            }`}
+          >
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#FFC107] uppercase tracking-wider mb-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#FFC107] shrink-0" />
+              <span>{brandData.govtApproved || 'Government Approved Electrical Contractor'}</span>
+            </div>
+            <p className={`text-xs ${isNight ? 'text-[#9AA5B1]' : 'text-[#505D68]'} leading-relaxed`}>
+              Officially licensed electrical contractor for turnkey Residential, Commercial, Industrial, and HT &amp; LT transmission line installations.
+            </p>
+          </div>
+
           <div className="space-y-5 text-sm">
             {/* Phone */}
             <div className="flex items-start gap-3.5">
@@ -513,23 +533,23 @@ function ContactFormInner() {
                     isNight ? 'text-[#66727E]' : 'text-[#7E8B97]'
                   }`}
                 >
-                  CENTRAL DESK
+                  DIRECT PHONE LINES
                 </span>
                 <a
-                  href={`tel:${BRAND.contact.phone.replace(/\s+/g, '')}`}
+                  href={`tel:${(brandData.contact?.phone || '+91 63560 66265').replace(/[^0-9+]/g, '')}`}
                   className={`font-semibold hover:text-[#FFC107] transition-colors block ${
                     isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
                   }`}
                 >
-                  {BRAND.contact.phone}
+                  {brandData.contact?.phone || '+91 63560 66265'} (Primary Line)
                 </a>
                 <a
-                  href={`tel:${BRAND.contact.phoneMobile.replace(/\s+/g, '')}`}
-                  className={`text-xs hover:text-[#FFC107] transition-colors block ${
+                  href={`tel:${(brandData.contact?.phoneMobile || '+91 88665 53646').replace(/[^0-9+]/g, '')}`}
+                  className={`text-xs hover:text-[#FFC107] transition-colors block mt-0.5 ${
                     isNight ? 'text-[#8E97A0]' : 'text-[#5C6873]'
                   }`}
                 >
-                  {BRAND.contact.phoneMobile} (Mobile / WhatsApp)
+                  {brandData.contact?.phoneMobile || '+91 88665 53646'} (Mobile / Hotline)
                 </a>
               </div>
             </div>
@@ -554,12 +574,12 @@ function ContactFormInner() {
                   OFFICIAL INQUIRIES
                 </span>
                 <a
-                  href={`mailto:${BRAND.contact.email}`}
-                  className={`font-semibold hover:text-[#FFC107] transition-colors block ${
+                  href={`mailto:${brandData.contact?.email || 'brahmanienterprise.019@gmail.com'}`}
+                  className={`font-semibold hover:text-[#FFC107] transition-colors block break-all ${
                     isNight ? 'text-[#F5F5F2]' : 'text-[#11161A]'
                   }`}
                 >
-                  {BRAND.contact.email}
+                  {brandData.contact?.email || 'brahmanienterprise.019@gmail.com'}
                 </a>
                 <span
                   className={`text-[11px] block font-mono ${

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Wrench, Gauge, ChevronRight } from 'lucide-react';
+import { ArrowRight, Shield, ShieldCheck, Phone, Wrench, Gauge, ChevronRight } from 'lucide-react';
 import HeroVideo from '@/components/HeroVideo';
 import StatStrip from '@/components/StatStrip';
 import SectionHeading from '@/components/SectionHeading';
@@ -47,13 +47,28 @@ export default function HomePage() {
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-              <span>BRAHMANI ELECTRICAL &amp; SOLAR</span>
+              <span>{brand?.name || 'BRAHMANI ENTERPRISE'}</span>
+            </motion.div>
+
+            {/* Government Approved Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 border text-[11px] sm:text-xs font-mono font-bold tracking-[0.12em] uppercase backdrop-blur-md transition-colors duration-500 ${
+                isNight
+                  ? 'bg-[#182129]/90 border-[#FFC107]/40 text-[#FFC107] shadow-[0_0_16px_rgba(255,193,7,0.15)]'
+                  : 'bg-[#FFF9E6]/95 border-[#FFC107]/60 text-[#A07400] shadow-xs'
+              }`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FFC107]" />
+              <span>{brand?.govtApproved || 'GOVERNMENT APPROVED ELECTRICAL CONTRACTOR'}</span>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.14 }}
               className="hidden sm:block"
             >
               <PowerStatus />
